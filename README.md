@@ -2,9 +2,15 @@
 
 Digital treningsressurs i fransk for 10. trinn.
 
-Første versjon inneholder:
+Struktur:
 
-- lys og visuell forside
+- `index.html`: forside med modulvalg
+- `module1.html`: Modul 1 - Tu viens de quelle région?
+- `style.css`: visuelt uttrykk og responsivt design
+- `app.js`: oppgaver, poeng, lyd og opptak
+
+Første modul inneholder:
+
 - Modul 1: Verbverksted
 - 30 verboppgaver totalt
 - nivåvalg: blandet, lett, middels og utfordring
