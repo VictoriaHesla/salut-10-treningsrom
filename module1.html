@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modul 1 - Tu viens de quelle région?</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="grammar.css" />
   <link rel="stylesheet" href="summary.css" />
   <link rel="stylesheet" href="sound.css" />
 </head>
@@ -27,9 +28,9 @@
   <main>
     <section class="map-panel" aria-labelledby="mapTitle">
       <div class="map-copy">
-        <p class="eyebrow">Verbverksted</p>
+        <p class="eyebrow">Kapittelmodul</p>
         <h2 id="mapTitle">Klar for første reise?</h2>
-        <p>Start med verbene du trenger for å fortelle om steder, regioner og små reiser på fransk.</p>
+        <p>Her øver du på verb, eiendomsord og passé composé mens du jobber med steder og regioner.</p>
       </div>
       <div class="postcard-row" aria-hidden="true">
         <div class="postcard paris"><span>🗼</span><strong>Paris</strong></div>
@@ -38,24 +39,31 @@
       </div>
     </section>
 
+    <nav class="station-nav" aria-label="Stasjoner i modul 1">
+      <a href="#verbverksted">🛠️ Verb</a>
+      <a href="#eiendomsord">🏠 Eiendomsord</a>
+      <a href="#passe-compose">🚉 Passé composé</a>
+      <a href="#oppsummering">🚗 Oppsummering</a>
+    </nav>
+
     <section class="module-grid single-module" aria-label="Modulstatus">
       <article class="module-card active" data-module="verb">
-        <div class="module-visual">🛠️</div>
+        <div class="module-visual">🧭</div>
         <div>
           <p class="tag">Modul 1</p>
-          <h2>Verbverksted</h2>
-          <p>Regelrette -ER, -IR og -RE-verb, pluss être og avoir.</p>
+          <h2>Tu viens de quelle région?</h2>
+          <p>Verbverksted, eiendomsord, passé composé og oppsummeringsspill.</p>
           <div class="progress"><span id="verbProgress"></span></div>
-          <p class="progress-text" id="verbProgressText">0 av 30 oppgaver</p>
+          <p class="progress-text" id="verbProgressText">Verb: 0 av 30 oppgaver</p>
         </div>
       </article>
     </section>
 
-    <section class="workspace" aria-live="polite">
+    <section class="workspace" id="verbverksted" aria-live="polite">
       <div class="lesson-card">
         <div class="lesson-header">
           <div>
-            <p class="eyebrow">Modul 1 · Verbverksted</p>
+            <p class="eyebrow">Stasjon 1 · Verbverksted</p>
             <h2 id="questionTitle">Oppgave</h2>
           </div>
           <button class="ghost-button" id="resetButton" type="button">🔁 Start nivået på nytt</button>
@@ -98,12 +106,142 @@
       </aside>
     </section>
 
-    <section class="summary-game" aria-labelledby="summaryTitle">
+    <section class="grammar-station" id="eiendomsord">
+      <div class="station-header">
+        <div class="station-icon">🏠</div>
+        <div>
+          <p class="eyebrow">Stasjon 2</p>
+          <h2>Eiendomsord</h2>
+          <p>Eiendomsordet følger ordet som kommer etter: hankjønn, hunkjønn eller flertall.</p>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <strong>Husk:</strong> På fransk ser vi på tingen eller personen som eies. Det heter <strong>mon frère</strong>, <strong>ma soeur</strong> og <strong>mes amis</strong>.
+      </div>
+
+      <div class="table-wrap">
+        <table class="grammar-table">
+          <thead>
+            <tr><th>Eier</th><th>Entall hankjønn</th><th>Entall hunkjønn</th><th>Flertall</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>jeg</td><td>mon</td><td>ma</td><td>mes</td></tr>
+            <tr><td>du</td><td>ton</td><td>ta</td><td>tes</td></tr>
+            <tr><td>han/hun</td><td>son</td><td>sa</td><td>ses</td></tr>
+            <tr><td>vi</td><td>notre</td><td>notre</td><td>nos</td></tr>
+            <tr><td>dere</td><td>votre</td><td>votre</td><td>vos</td></tr>
+            <tr><td>de</td><td>leur</td><td>leur</td><td>leurs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="activity-grid">
+        <article class="activity-card">
+          <h3>🎯 Velg riktig eiendomsord</h3>
+          <div class="activity-row"><label>___ frère est à Paris.</label><select data-answer="mon"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
+          <div class="activity-row"><label>___ soeur habite en Corse.</label><select data-answer="ma"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
+          <div class="activity-row"><label>___ amis visitent Meaux.</label><select data-answer="mes"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
+          <div class="activity-row"><label>___ région est belle.</label><select data-answer="notre"><option></option><option>notre</option><option>nos</option><option>votre</option></select></div>
+          <button class="check-button" data-check="possessifs-1" type="button">Sjekk svar</button>
+          <p class="activity-feedback"></p>
+        </article>
+
+        <article class="activity-card">
+          <h3>✍️ Skriv riktig ord</h3>
+          <div class="activity-row"><label>mine venner = ___ amis</label><input data-answer="mes" autocomplete="off"></div>
+          <div class="activity-row"><label>din mor = ___ mère</label><input data-answer="ta" autocomplete="off"></div>
+          <div class="activity-row"><label>hans/hennes skole = ___ école</label><input data-answer="son" autocomplete="off"></div>
+          <div class="activity-row"><label>deres bil = ___ voiture</label><input data-answer="leur" autocomplete="off"></div>
+          <button class="check-button" data-check="possessifs-2" type="button">Sjekk svar</button>
+          <p class="activity-feedback"></p>
+        </article>
+
+        <article class="activity-card">
+          <h3>🔎 Finn eiendomsord</h3>
+          <p>Les teksten og skriv tre eiendomsord du finner.</p>
+          <div class="mini-text">Salut! Je suis à Paris avec <span class="word-chip">ma</span> classe. <span class="word-chip">Mon</span> hôtel est près de la gare. <span class="word-chip">Mes</span> amis aiment la ville.</div>
+          <div class="activity-row"><label>Ord 1</label><input data-answer="ma|mon|mes" autocomplete="off"></div>
+          <div class="activity-row"><label>Ord 2</label><input data-answer="ma|mon|mes" autocomplete="off"></div>
+          <div class="activity-row"><label>Ord 3</label><input data-answer="ma|mon|mes" autocomplete="off"></div>
+          <button class="check-button" data-check="possessifs-3" type="button">Sjekk svar</button>
+          <p class="activity-feedback"></p>
+        </article>
+
+        <article class="activity-card">
+          <h3>🧩 Forstå regelen</h3>
+          <div class="activity-row"><label>Pourquoi: mon école?</label><select data-answer="école starter med vokal"><option></option><option>école starter med vokal</option><option>école er flertall</option><option>école er hankjønn</option></select></div>
+          <div class="activity-row"><label>Hva bestemmer om vi bruker mon/ma/mes?</label><select data-answer="ordet etter"><option></option><option>ordet etter</option><option>personen som eier</option><option>verbet i setningen</option></select></div>
+          <button class="check-button" data-check="possessifs-4" type="button">Sjekk svar</button>
+          <p class="activity-feedback"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="grammar-station" id="passe-compose">
+      <div class="station-header">
+        <div class="station-icon">🚉</div>
+        <div>
+          <p class="eyebrow">Stasjon 3</p>
+          <h2>Passé composé</h2>
+          <p>Først repeterer vi passé composé med avoir. Så øver vi på être-verb som handler mye om reise, bevegelse eller endring.</p>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <strong>Avoir:</strong> j'ai visité, tu as fini, nous avons vendu. <br>
+        <strong>Être:</strong> je suis allé, elle est partie, ils sont arrivés. Med être må partisippet ofte passe: allé, allée, allés, allées.
+      </div>
+
+      <div class="activity-grid">
+        <article class="activity-card">
+          <h3>🎯 Avoir eller être?</h3>
+          <div class="activity-row"><label>Je ___ visité Paris.</label><select data-answer="ai"><option></option><option>ai</option><option>suis</option></select></div>
+          <div class="activity-row"><label>Elle ___ partie en Corse.</label><select data-answer="est"><option></option><option>a</option><option>est</option></select></div>
+          <div class="activity-row"><label>Nous ___ vendu la voiture.</label><select data-answer="avons"><option></option><option>avons</option><option>sommes</option></select></div>
+          <div class="activity-row"><label>Ils ___ arrivés à Meaux.</label><select data-answer="sont"><option></option><option>ont</option><option>sont</option></select></div>
+          <button class="check-button" data-check="passe-1" type="button">Sjekk svar</button>
+          <p class="activity-feedback"></p>
+        </article>
+
+        <article class="activity-card">
+          <h3>✍️ Velg riktig partisipp</h3>
+          <div class="activity-row"><label>Il est ___ à Paris.</label><select data-answer="allé"><option></option><option>allé</option><option>allée</option><option>allés</option></select></div>
+          <div class="activity-row"><label>Elle est ___ en Guyane.</label><select data-answer="allée"><option></option><option>allé</option><option>allée</option><option>allés</option></select></div>
+          <div class="activity-row"><label>Ils sont ___ à la gare.</label><select data-answer="arrivés"><option></option><option>arrivé</option><option>arrivée</option><option>arrivés</option></select></div>
+          <div class="activity-row"><label>Elles sont ___ de Corse.</label><select data-answer="parties"><option></option><option>parti</option><option>partie</option><option>parties</option></select></div>
+          <button class="check-button" data-check="passe-2" type="button">Sjekk svar</button>
+          <p class="activity-feedback"></p>
+        </article>
+
+        <article class="activity-card">
+          <h3>🚗 Reiseverb med être</h3>
+          <p>Skriv hjelpeverbet som mangler.</p>
+          <div class="activity-row"><label>Je ___ né en France.</label><input data-answer="suis" autocomplete="off"></div>
+          <div class="activity-row"><label>Tu ___ resté à l'hôtel.</label><input data-answer="es" autocomplete="off"></div>
+          <div class="activity-row"><label>Nous ___ montés dans le train.</label><input data-answer="sommes" autocomplete="off"></div>
+          <div class="activity-row"><label>Vous ___ sortis de la gare.</label><input data-answer="êtes" autocomplete="off"></div>
+          <button class="check-button" data-check="passe-3" type="button">Sjekk svar</button>
+          <p class="activity-feedback"></p>
+        </article>
+
+        <article class="activity-card">
+          <h3>🌍 Oversett kort</h3>
+          <div class="activity-row"><label>Jeg dro til Paris. = Je ___ allé à Paris.</label><input data-answer="suis" autocomplete="off"></div>
+          <div class="activity-row"><label>Hun kom til Meaux. = Elle est ___ à Meaux.</label><input data-answer="arrivée" autocomplete="off"></div>
+          <div class="activity-row"><label>Vi besøkte Korsika. = Nous avons ___ la Corse.</label><input data-answer="visité" autocomplete="off"></div>
+          <button class="check-button" data-check="passe-4" type="button">Sjekk svar</button>
+          <p class="activity-feedback"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="summary-game" id="oppsummering" aria-labelledby="summaryTitle">
       <div class="summary-intro">
         <div>
           <p class="eyebrow">Oppsummeringsspill</p>
           <h2 id="summaryTitle">Reiseruta: klarer du 20 stopp?</h2>
-          <p>Bilen flytter seg fremover når du svarer riktig. Spillet repeterer verbene fra Modul 1.</p>
+          <p>Bilen flytter seg fremover når du svarer riktig. Spillet blander verb, eiendomsord og passé composé.</p>
         </div>
         <button class="summary-reset" id="summaryReset" type="button">🔁 Start spillet på nytt</button>
       </div>
@@ -128,6 +266,7 @@
   </main>
 
   <script src="app.js"></script>
+  <script src="grammar.js"></script>
   <script src="summary.js"></script>
   <script src="summary-car.js"></script>
   <script src="sound.js"></script>
