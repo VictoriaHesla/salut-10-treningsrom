@@ -7,117 +7,59 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar home-topbar">
     <div>
       <p class="eyebrow">Fransk 1 · 10. trinn</p>
       <h1>Salut 10 - treningsrom</h1>
     </div>
-    <div class="score-card" aria-live="polite">
-      <span class="score-icon">⭐</span>
-      <div>
-        <strong id="totalScore">0</strong>
-        <span>poeng samlet</span>
-      </div>
-    </div>
   </header>
 
   <main>
-    <section class="map-panel" aria-labelledby="mapTitle">
-      <div class="map-copy">
+    <section class="home-hero" aria-labelledby="homeTitle">
+      <div class="home-copy">
         <p class="eyebrow">Forside</p>
-        <h2 id="mapTitle">Mission France</h2>
-        <p>Velg en modul, samle poeng og jobb deg gjennom små oppdrag fra franske steder og regioner.</p>
+        <h2 id="homeTitle">Velg modul</h2>
+        <p>Her kan du øve på fransk med små oppdrag, poeng, lyd og muntlig trening.</p>
+        <a class="primary-link" href="module1.html">Start modul 1</a>
       </div>
-      <div class="postcard-row" aria-hidden="true">
-        <div class="postcard paris"><span>🗼</span><strong>Paris</strong></div>
-        <div class="postcard corse"><span>🏝️</span><strong>Corse</strong></div>
-        <div class="postcard guyane"><span>🌿</span><strong>Guyane</strong></div>
+      <div class="travel-board" aria-hidden="true">
+        <div class="travel-card paris"><span>🗼</span><strong>Paris</strong></div>
+        <div class="travel-card corse"><span>🏝️</span><strong>Corse</strong></div>
+        <div class="travel-card guyane"><span>🌿</span><strong>Guyane</strong></div>
       </div>
     </section>
 
     <section class="module-grid" aria-label="Moduler">
-      <article class="module-card active" data-module="verb">
+      <a class="module-card module-link active" href="module1.html">
         <div class="module-visual">🛠️</div>
         <div>
           <p class="tag">Modul 1</p>
-          <h2>Verbverksted</h2>
-          <p>Regelrette -ER, -IR og -RE-verb, pluss être og avoir.</p>
-          <div class="progress"><span id="verbProgress"></span></div>
-          <p class="progress-text" id="verbProgressText">0 av 30 oppgaver</p>
+          <h2>Tu viens de quelle région?</h2>
+          <p>Verbverksted med -ER, -IR og -RE-verb, être og avoir.</p>
+          <span class="module-status ready">Klar</span>
         </div>
-      </article>
+      </a>
 
-      <article class="module-card future" data-module="possessifs">
+      <article class="module-card future" aria-disabled="true">
         <div class="module-visual">🏠</div>
         <div>
           <p class="tag">Modul 2</p>
           <h2>Eiendomsord</h2>
-          <p>Mon, ma, mes - lær å se på ordet som kommer etter.</p>
-          <div class="progress"><span id="possessifsProgress"></span></div>
-          <p class="progress-text">Ikke startet</p>
+          <p>Mon, ma, mes - og små tekster der elevene finner eiendomsord.</p>
+          <span class="module-status planned">Planlagt</span>
         </div>
       </article>
 
-      <article class="module-card future" data-module="passe">
+      <article class="module-card future" aria-disabled="true">
         <div class="module-visual">🚉</div>
         <div>
           <p class="tag">Modul 3</p>
           <h2>Passé composé</h2>
-          <p>Først avoir, så être-verb som aller, partir og arriver.</p>
-          <div class="progress"><span id="passeProgress"></span></div>
-          <p class="progress-text">Ikke startet</p>
+          <p>Først avoir, deretter être-verb knyttet til reise og bevegelse.</p>
+          <span class="module-status planned">Planlagt</span>
         </div>
       </article>
     </section>
-
-    <section class="workspace" aria-live="polite">
-      <div class="lesson-card">
-        <div class="lesson-header">
-          <div>
-            <p class="eyebrow">Modul 1 · Verbverksted</p>
-            <h2 id="questionTitle">Oppgave</h2>
-          </div>
-          <button class="ghost-button" id="resetButton" type="button">🔁 Start nivået på nytt</button>
-        </div>
-
-        <div class="level-panel" aria-label="Velg vanskelighetsgrad">
-          <button class="level-button active" type="button" data-level="blandet">🎲 Blandet</button>
-          <button class="level-button" type="button" data-level="lett">🌱 Lett</button>
-          <button class="level-button" type="button" data-level="middels">🎯 Middels</button>
-          <button class="level-button" type="button" data-level="utfordring">🔥 Utfordring</button>
-        </div>
-
-        <div class="question-box">
-          <p class="question-count" id="questionCount">Oppgave 1 av 30</p>
-          <p id="questionText"></p>
-          <div class="answer-grid" id="answerGrid"></div>
-          <div class="help-row">
-            <button class="help-button" id="ruleButton" type="button">💡 Vis regel</button>
-            <button class="help-button" id="hintButton" type="button">🧩 Vis hint</button>
-          </div>
-          <p class="support-text" id="supportText"></p>
-          <p class="feedback" id="feedback"></p>
-        </div>
-      </div>
-
-      <aside class="side-panel">
-        <h2>🎧 Snakk litt fransk</h2>
-        <p>Hør setningen, les den inn, og spill av din egen stemme. Du kan prøve så mange ganger du vil.</p>
-        <div class="speech-card">
-          <p id="speechText">Je suis allé à Paris.</p>
-          <button id="listenButton" type="button">🔊 Lytt</button>
-        </div>
-        <div class="record-controls">
-          <button id="recordButton" type="button">🎙️ Spill inn</button>
-          <button id="stopButton" type="button" disabled>⏹️ Stopp</button>
-          <button id="newSentenceButton" type="button">🎲 Ny setning</button>
-          <audio id="playback" controls></audio>
-        </div>
-        <p class="small-note" id="recordStatus">Opptak krever at nettleseren får tilgang til mikrofon.</p>
-      </aside>
-    </section>
   </main>
-
-  <script src="app.js"></script>
 </body>
 </html>
