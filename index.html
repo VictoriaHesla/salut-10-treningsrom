@@ -11,7 +11,6 @@
     <div>
       <p class="eyebrow">Fransk 1 · 10. trinn</p>
       <h1>Salut 10 - treningsrom</h1>
-      <p class="lead">Et lyst og lekent sted for å øve på verb, eiendomsord og passé composé.</p>
     </div>
     <div class="score-card" aria-live="polite">
       <span class="score-icon">⭐</span>
@@ -25,9 +24,9 @@
   <main>
     <section class="map-panel" aria-labelledby="mapTitle">
       <div class="map-copy">
-        <p class="eyebrow">Mission France</p>
-        <h2 id="mapTitle">Tu viens de quelle région ?</h2>
-        <p>Reis mellom små treningsstasjoner. Hver modul gir poeng, fremgang og korte tips når noe blir feil.</p>
+        <p class="eyebrow">Forside</p>
+        <h2 id="mapTitle">Mission France</h2>
+        <p>Velg en modul, samle poeng og jobb deg gjennom små oppdrag fra franske steder og regioner.</p>
       </div>
       <div class="postcard-row" aria-hidden="true">
         <div class="postcard paris"><span>🗼</span><strong>Paris</strong></div>
@@ -40,33 +39,33 @@
       <article class="module-card active" data-module="verb">
         <div class="module-visual">🛠️</div>
         <div>
-          <p class="tag">Start her</p>
+          <p class="tag">Modul 1</p>
           <h2>Verbverksted</h2>
-          <p>Repeter regelrette -ER, -IR og -RE-verb, pluss être og avoir.</p>
+          <p>Regelrette -ER, -IR og -RE-verb, pluss être og avoir.</p>
           <div class="progress"><span id="verbProgress"></span></div>
-          <p class="progress-text" id="verbProgressText">0 av 6 oppgaver</p>
+          <p class="progress-text" id="verbProgressText">0 av 30 oppgaver</p>
         </div>
       </article>
 
-      <article class="module-card locked" data-module="possessifs">
+      <article class="module-card future" data-module="possessifs">
         <div class="module-visual">🏠</div>
         <div>
-          <p class="tag">Neste modul</p>
+          <p class="tag">Modul 2</p>
           <h2>Eiendomsord</h2>
           <p>Mon, ma, mes - lær å se på ordet som kommer etter.</p>
           <div class="progress"><span id="possessifsProgress"></span></div>
-          <p class="progress-text">Kommer snart</p>
+          <p class="progress-text">Ikke startet</p>
         </div>
       </article>
 
-      <article class="module-card locked" data-module="passe">
+      <article class="module-card future" data-module="passe">
         <div class="module-visual">🚉</div>
         <div>
-          <p class="tag">Kommer snart</p>
+          <p class="tag">Modul 3</p>
           <h2>Passé composé</h2>
           <p>Først avoir, så être-verb som aller, partir og arriver.</p>
           <div class="progress"><span id="passeProgress"></span></div>
-          <p class="progress-text">Kommer snart</p>
+          <p class="progress-text">Ikke startet</p>
         </div>
       </article>
     </section>
@@ -75,27 +74,35 @@
       <div class="lesson-card">
         <div class="lesson-header">
           <div>
-            <p class="eyebrow">🛠️ Verbverksted</p>
+            <p class="eyebrow">Modul 1 · Verbverksted</p>
             <h2 id="questionTitle">Oppgave</h2>
           </div>
-          <button class="ghost-button" id="resetButton" type="button">🔁 Start på nytt</button>
+          <button class="ghost-button" id="resetButton" type="button">🔁 Start nivået på nytt</button>
         </div>
 
-        <div class="tip-box">
-          <strong>Mini-regel:</strong>
-          <span id="ruleText">-ER-verb får ofte endelsene -e, -es, -e, -ons, -ez, -ent.</span>
+        <div class="level-panel" aria-label="Velg vanskelighetsgrad">
+          <button class="level-button active" type="button" data-level="blandet">🎲 Blandet</button>
+          <button class="level-button" type="button" data-level="lett">🌱 Lett</button>
+          <button class="level-button" type="button" data-level="middels">🎯 Middels</button>
+          <button class="level-button" type="button" data-level="utfordring">🔥 Utfordring</button>
         </div>
 
         <div class="question-box">
+          <p class="question-count" id="questionCount">Oppgave 1 av 30</p>
           <p id="questionText"></p>
           <div class="answer-grid" id="answerGrid"></div>
+          <div class="help-row">
+            <button class="help-button" id="ruleButton" type="button">💡 Vis regel</button>
+            <button class="help-button" id="hintButton" type="button">🧩 Vis hint</button>
+          </div>
+          <p class="support-text" id="supportText"></p>
           <p class="feedback" id="feedback"></p>
         </div>
       </div>
 
       <aside class="side-panel">
         <h2>🎧 Snakk litt fransk</h2>
-        <p>Hør setningen, les den inn, og spill av din egen stemme.</p>
+        <p>Hør setningen, les den inn, og spill av din egen stemme. Du kan prøve så mange ganger du vil.</p>
         <div class="speech-card">
           <p id="speechText">Je suis allé à Paris.</p>
           <button id="listenButton" type="button">🔊 Lytt</button>
@@ -103,16 +110,13 @@
         <div class="record-controls">
           <button id="recordButton" type="button">🎙️ Spill inn</button>
           <button id="stopButton" type="button" disabled>⏹️ Stopp</button>
+          <button id="newSentenceButton" type="button">🎲 Ny setning</button>
           <audio id="playback" controls></audio>
         </div>
         <p class="small-note" id="recordStatus">Opptak krever at nettleseren får tilgang til mikrofon.</p>
       </aside>
     </section>
   </main>
-
-  <footer>
-    <p>Laget for enkel øving i Fransk 1. Fremgang lagres bare i nettleseren du bruker.</p>
-  </footer>
 
   <script src="app.js"></script>
 </body>
