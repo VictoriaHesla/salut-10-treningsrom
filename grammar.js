@@ -1,11 +1,54 @@
 const activityProgressKey = "salut10-module1-activity-progress-v1";
 const completedActivities = loadCompletedActivities();
 
+enhancePossessivePractice();
 insertExtraPossessiveRuleCards();
 insertEtreVerbFigures();
 setupActivityChecks();
 setupRetryClearing();
 markCompletedActivityCards();
+
+function enhancePossessivePractice() {
+  const possessiveCards = document.querySelectorAll("#eiendomsord .activity-card");
+  const chooseCard = possessiveCards[0];
+  const findCard = possessiveCards[2];
+
+  if (chooseCard && !chooseCard.dataset.enhanced) {
+    chooseCard.dataset.enhanced = "true";
+    chooseCard.innerHTML = `
+      <h3>🎯 Velg riktig eiendomsord</h3>
+      <div class="activity-row"><label>___ frère est à Paris.</label><select data-answer="mon"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
+      <div class="activity-row"><label>___ soeur habite en Corse.</label><select data-answer="ma"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
+      <div class="activity-row"><label>___ amis visitent Meaux.</label><select data-answer="mes"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
+      <div class="activity-row"><label>___ père travaille à Lyon.</label><select data-answer="ton"><option></option><option>ton</option><option>ta</option><option>tes</option></select></div>
+      <div class="activity-row"><label>___ mère aime la Guyane.</label><select data-answer="ta"><option></option><option>ton</option><option>ta</option><option>tes</option></select></div>
+      <div class="activity-row"><label>___ parents voyagent souvent.</label><select data-answer="tes"><option></option><option>ton</option><option>ta</option><option>tes</option></select></div>
+      <div class="activity-row"><label>___ école est près de la gare.</label><select data-answer="son"><option></option><option>son</option><option>sa</option><option>ses</option></select></div>
+      <div class="activity-row"><label>___ région est belle.</label><select data-answer="notre"><option></option><option>notre</option><option>nos</option><option>votre</option></select></div>
+      <div class="activity-row"><label>___ photos sont jolies.</label><select data-answer="nos"><option></option><option>notre</option><option>nos</option><option>votre</option></select></div>
+      <div class="activity-row"><label>Ils parlent de ___ vacances.</label><select data-answer="leurs"><option></option><option>leur</option><option>leurs</option><option>ses</option></select></div>
+      <button class="check-button" data-check="possessifs-1" type="button">Sjekk svar</button>
+      <p class="activity-feedback"></p>
+    `;
+  }
+
+  if (findCard && !findCard.dataset.enhanced) {
+    findCard.dataset.enhanced = "true";
+    findCard.innerHTML = `
+      <h3>🔎 Finn og forstå eiendomsord</h3>
+      <p>Les postkortet. Finn eiendomsord i teksten, og skriv hva de betyr på norsk.</p>
+      <div class="mini-text">Salut Inès! Je suis en Guyane avec ma famille. Notre hôtel est petit, mais très sympa. Mon frère adore la forêt, et ma mère prend beaucoup de photos. Demain, nous allons visiter une école. Son directeur parle français et créole. Mes amis à Meaux veulent voir nos photos quand nous rentrons. Et toi, comment sont tes vacances?</div>
+      <div class="activity-row"><label>Fransk eiendomsord 1</label><input data-answer="notre|mon|ma|son|mes|nos|tes" autocomplete="off"></div>
+      <div class="activity-row"><label>Hva betyr det på norsk?</label><input data-answer="vår|mitt|min|hans|hennes|mine|våre|dine" autocomplete="off"></div>
+      <div class="activity-row"><label>Fransk eiendomsord 2</label><input data-answer="notre|mon|ma|son|mes|nos|tes" autocomplete="off"></div>
+      <div class="activity-row"><label>Hva betyr det på norsk?</label><input data-answer="vår|mitt|min|hans|hennes|mine|våre|dine" autocomplete="off"></div>
+      <div class="activity-row"><label>Fransk eiendomsord 3</label><input data-answer="notre|mon|ma|son|mes|nos|tes" autocomplete="off"></div>
+      <div class="activity-row"><label>Hva betyr det på norsk?</label><input data-answer="vår|mitt|min|hans|hennes|mine|våre|dine" autocomplete="off"></div>
+      <button class="check-button" data-check="possessifs-3" type="button">Sjekk svar</button>
+      <p class="activity-feedback"></p>
+    `;
+  }
+}
 
 function setupActivityChecks() {
   document.querySelectorAll(".check-button[data-check]").forEach((button) => {
@@ -96,6 +139,16 @@ function insertExtraPossessiveRuleCards() {
       <div class="activity-row"><label>Hvorfor heter det leur mère?</label><select data-answer="mère er entall"><option></option><option>mère er flertall</option><option>mère er entall</option><option>mère starter med vokal</option></select></div>
       <div class="activity-row"><label>Hva må du se etter først?</label><select data-answer="substantivet etter"><option></option><option>substantivet etter</option><option>verbet før</option><option>om eieren er gutt eller jente</option></select></div>
       <button class="check-button" data-check="possessifs-7" type="button">Sjekk svar</button>
+      <p class="activity-feedback"></p>
+    </article>
+
+    <article class="activity-card">
+      <h3>🧭 Mon, ma eller mes?</h3>
+      <p>Velg etter ordet som kommer etter, ikke etter personen som eier.</p>
+      <div class="activity-row"><label>___ adresse est à Paris.</label><select data-answer="mon"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
+      <div class="activity-row"><label>___ ville préférée est Ajaccio.</label><select data-answer="ma"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
+      <div class="activity-row"><label>___ cousins habitent en Guyane.</label><select data-answer="mes"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
+      <button class="check-button" data-check="possessifs-8" type="button">Sjekk svar</button>
       <p class="activity-feedback"></p>
     </article>
   `);
