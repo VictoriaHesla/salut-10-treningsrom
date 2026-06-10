@@ -27,7 +27,8 @@ const activityProgressKey = "salut10-module1-activity-progress-v1";
 const requiredActivities = [
   "possessifs-1", "possessifs-2", "possessifs-3", "possessifs-4",
   "possessifs-5", "possessifs-6", "possessifs-7", "possessifs-8",
-  "passe-1", "passe-2", "passe-3", "passe-4"
+  "passe-1", "passe-2", "passe-3", "passe-4",
+  "passe-5", "passe-6", "passe-7", "passe-8"
 ];
 const summaryState = loadSummaryState();
 
