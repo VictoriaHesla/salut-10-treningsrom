@@ -1,6 +1,5 @@
 const soundKey = "salut10-sound-enabled";
 let audioContext;
-let ambientTimer;
 let soundEnabled = localStorage.getItem(soundKey) === "true";
 
 const soundButton = document.createElement("button");
@@ -16,10 +15,7 @@ soundButton.addEventListener("click", async () => {
 
   if (soundEnabled) {
     await ensureAudio();
-    startAmbient();
-    playTone([523, 659, 784], 0.08, "sine");
-  } else {
-    stopAmbient();
+    playTone([523, 659, 784], 0.06, "sine");
   }
 
   updateSoundButton();
@@ -30,26 +26,22 @@ document.addEventListener("click", (event) => {
     return;
   }
 
-  const clickedAnswer = event.target.closest("#answerGrid button, #summaryAnswers button");
+  const clickedAnswer = event.target.closest("#answerGrid button, #summaryAnswers button, .check-button");
   if (!clickedAnswer) {
     return;
   }
 
   window.setTimeout(() => {
-    const isCorrect = document.querySelector(".feedback.correct, .summary-feedback.correct");
-    const isWrong = document.querySelector(".feedback.wrong, .summary-feedback.wrong");
+    const isCorrect = document.querySelector(".feedback.correct, .summary-feedback.correct, .activity-feedback.correct");
+    const isWrong = document.querySelector(".feedback.wrong, .summary-feedback.wrong, .activity-feedback.wrong");
 
     if (isCorrect) {
-      playTone([660, 880], 0.07, "triangle");
+      playTone([660, 880], 0.055, "triangle");
     } else if (isWrong) {
-      playTone([220, 196], 0.08, "sine");
+      playTone([220, 196], 0.055, "sine");
     }
   }, 40);
 });
-
-if (soundEnabled) {
-  updateSoundButton();
-}
 
 async function ensureAudio() {
   if (!audioContext) {
@@ -66,21 +58,7 @@ function updateSoundButton() {
   soundButton.textContent = soundEnabled ? "🔊 Lyd på" : "🔇 Lyd av";
 }
 
-function startAmbient() {
-  stopAmbient();
-  ambientTimer = window.setInterval(() => {
-    playTone([392, 494, 587], 0.045, "sine", 1.2);
-  }, 5200);
-}
-
-function stopAmbient() {
-  if (ambientTimer) {
-    window.clearInterval(ambientTimer);
-    ambientTimer = undefined;
-  }
-}
-
-async function playTone(frequencies, volume = 0.06, type = "sine", duration = 0.28) {
+async function playTone(frequencies, volume = 0.06, type = "sine", duration = 0.22) {
   if (!soundEnabled) {
     return;
   }
@@ -91,13 +69,13 @@ async function playTone(frequencies, volume = 0.06, type = "sine", duration = 0.
   frequencies.forEach((frequency, index) => {
     const oscillator = audioContext.createOscillator();
     const gain = audioContext.createGain();
-    const start = now + index * 0.07;
+    const start = now + index * 0.06;
     const stop = start + duration;
 
     oscillator.type = type;
     oscillator.frequency.setValueAtTime(frequency, start);
     gain.gain.setValueAtTime(0.0001, start);
-    gain.gain.exponentialRampToValueAtTime(volume, start + 0.03);
+    gain.gain.exponentialRampToValueAtTime(volume, start + 0.025);
     gain.gain.exponentialRampToValueAtTime(0.0001, stop);
 
     oscillator.connect(gain);
