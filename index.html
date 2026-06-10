@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salut 10 - treningsrom</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Fransk 1 · 10. trinn</p>
+      <h1>Salut 10 - treningsrom</h1>
+      <p class="lead">Et lyst og lekent sted for å øve på verb, eiendomsord og passé composé.</p>
+    </div>
+    <div class="score-card" aria-live="polite">
+      <span class="score-icon">⭐</span>
+      <div>
+        <strong id="totalScore">0</strong>
+        <span>poeng samlet</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="map-panel" aria-labelledby="mapTitle">
+      <div class="map-copy">
+        <p class="eyebrow">Mission France</p>
+        <h2 id="mapTitle">Tu viens de quelle région ?</h2>
+        <p>Reis mellom små treningsstasjoner. Hver modul gir poeng, fremgang og korte tips når noe blir feil.</p>
+      </div>
+      <div class="postcard-row" aria-hidden="true">
+        <div class="postcard paris"><span>🗼</span><strong>Paris</strong></div>
+        <div class="postcard corse"><span>🏝️</span><strong>Corse</strong></div>
+        <div class="postcard guyane"><span>🌿</span><strong>Guyane</strong></div>
+      </div>
+    </section>
+
+    <section class="module-grid" aria-label="Moduler">
+      <article class="module-card active" data-module="verb">
+        <div class="module-visual">🛠️</div>
+        <div>
+          <p class="tag">Start her</p>
+          <h2>Verbverksted</h2>
+          <p>Repeter regelrette -ER, -IR og -RE-verb, pluss être og avoir.</p>
+          <div class="progress"><span id="verbProgress"></span></div>
+          <p class="progress-text" id="verbProgressText">0 av 6 oppgaver</p>
+        </div>
+      </article>
+
+      <article class="module-card locked" data-module="possessifs">
+        <div class="module-visual">🏠</div>
+        <div>
+          <p class="tag">Neste modul</p>
+          <h2>Eiendomsord</h2>
+          <p>Mon, ma, mes - lær å se på ordet som kommer etter.</p>
+          <div class="progress"><span id="possessifsProgress"></span></div>
+          <p class="progress-text">Kommer snart</p>
+        </div>
+      </article>
+
+      <article class="module-card locked" data-module="passe">
+        <div class="module-visual">🚉</div>
+        <div>
+          <p class="tag">Kommer snart</p>
+          <h2>Passé composé</h2>
+          <p>Først avoir, så être-verb som aller, partir og arriver.</p>
+          <div class="progress"><span id="passeProgress"></span></div>
+          <p class="progress-text">Kommer snart</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="workspace" aria-live="polite">
+      <div class="lesson-card">
+        <div class="lesson-header">
+          <div>
+            <p class="eyebrow">🛠️ Verbverksted</p>
+            <h2 id="questionTitle">Oppgave</h2>
+          </div>
+          <button class="ghost-button" id="resetButton" type="button">🔁 Start på nytt</button>
+        </div>
+
+        <div class="tip-box">
+          <strong>Mini-regel:</strong>
+          <span id="ruleText">-ER-verb får ofte endelsene -e, -es, -e, -ons, -ez, -ent.</span>
+        </div>
+
+        <div class="question-box">
+          <p id="questionText"></p>
+          <div class="answer-grid" id="answerGrid"></div>
+          <p class="feedback" id="feedback"></p>
+        </div>
+      </div>
+
+      <aside class="side-panel">
+        <h2>🎧 Snakk litt fransk</h2>
+        <p>Hør setningen, les den inn, og spill av din egen stemme.</p>
+        <div class="speech-card">
+          <p id="speechText">Je suis allé à Paris.</p>
+          <button id="listenButton" type="button">🔊 Lytt</button>
+        </div>
+        <div class="record-controls">
+          <button id="recordButton" type="button">🎙️ Spill inn</button>
+          <button id="stopButton" type="button" disabled>⏹️ Stopp</button>
+          <audio id="playback" controls></audio>
+        </div>
+        <p class="small-note" id="recordStatus">Opptak krever at nettleseren får tilgang til mikrofon.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <p>Laget for enkel øving i Fransk 1. Fremgang lagres bare i nettleseren du bruker.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
