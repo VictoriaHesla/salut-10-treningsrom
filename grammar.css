@@ -128,6 +128,18 @@
   font: inherit;
 }
 
+.activity-row input.is-correct,
+.activity-row select.is-correct {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.activity-row input.is-wrong,
+.activity-row select.is-wrong {
+  border-color: #fb7185;
+  background: #fff1f2;
+}
+
 .check-button {
   min-height: 44px;
   padding: 10px 14px;
