@@ -1,4 +1,4 @@
-const summaryCarKey = "salut10-module1-summary-v1";
+const summaryCarKey = "salut10-module1-summary-v2";
 
 positionSummaryCar();
 window.addEventListener("resize", positionSummaryCar);
