@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modul 1 - Tu viens de quelle région?</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="summary.css" />
 </head>
 <body>
   <header class="topbar">
@@ -95,8 +96,37 @@
         <p class="small-note" id="recordStatus">Opptak krever at nettleseren får tilgang til mikrofon.</p>
       </aside>
     </section>
+
+    <section class="summary-game" aria-labelledby="summaryTitle">
+      <div class="summary-intro">
+        <div>
+          <p class="eyebrow">Oppsummeringsspill</p>
+          <h2 id="summaryTitle">Reiseruta: klarer du 20 stopp?</h2>
+          <p>Bilen flytter seg fremover når du svarer riktig. Spillet repeterer verbene fra Modul 1.</p>
+        </div>
+        <button class="summary-reset" id="summaryReset" type="button">🔁 Start spillet på nytt</button>
+      </div>
+
+      <div class="road-wrap" aria-hidden="true">
+        <div class="road-line"></div>
+        <div class="road-car" id="roadCar">🚗</div>
+        <div class="road-finish">🏁</div>
+      </div>
+
+      <div class="summary-status">
+        <span id="summaryCounter">Stopp 1 av 20</span>
+        <span id="summaryScore">0 riktige</span>
+      </div>
+
+      <div class="summary-question-card">
+        <p id="summaryQuestion">Trykk på et svar for å starte reisen.</p>
+        <div class="summary-answers" id="summaryAnswers"></div>
+        <p class="summary-feedback" id="summaryFeedback"></p>
+      </div>
+    </section>
   </main>
 
   <script src="app.js"></script>
+  <script src="summary.js"></script>
 </body>
 </html>
