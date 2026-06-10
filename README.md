@@ -8,6 +8,9 @@ Struktur:
 - `module1.html`: Modul 1 - Tu viens de quelle région?
 - `style.css`: visuelt uttrykk og responsivt design
 - `app.js`: oppgaver, poeng, lyd og opptak
+- `summary.css`: utseende for oppsummeringsspill
+- `summary.js`: 20 stopp i oppsummeringsspillet
+- `summary-car.js`: responsiv bilbevegelse i oppsummeringsspillet
 
 Første modul inneholder:
 
@@ -21,6 +24,7 @@ Første modul inneholder:
 - regel og hint som eleven kan åpne selv
 - opplesing av franske eksempelsetninger
 - opptak, ny innspilling og avspilling av egen stemme
+- oppsummeringsspill med bilreise og 20 stopp
 
 Planlagte moduler:
 
