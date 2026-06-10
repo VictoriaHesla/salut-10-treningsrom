@@ -1,0 +1,160 @@
+.summary-game {
+  margin: 0 0 38px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  box-shadow: var(--shadow);
+}
+
+.summary-intro {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: start;
+}
+
+.summary-intro p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.summary-reset {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 8px;
+  color: var(--primary-dark);
+  background: var(--soft-blue);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.road-wrap {
+  position: relative;
+  height: 92px;
+  margin: 26px 0 14px;
+  padding: 0 34px;
+}
+
+.road-line {
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  top: 42px;
+  height: 12px;
+  border-radius: 999px;
+  background: repeating-linear-gradient(90deg, #64748b 0 22px, #cbd5e1 22px 36px);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.65);
+}
+
+.road-car {
+  position: absolute;
+  left: 24px;
+  top: 16px;
+  z-index: 2;
+  font-size: 2.8rem;
+  transform: translateX(0%);
+  transition: transform 0.35s ease;
+}
+
+.road-finish {
+  position: absolute;
+  right: 18px;
+  top: 8px;
+  z-index: 2;
+  font-size: 3rem;
+}
+
+.summary-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.summary-question-card {
+  padding: 18px;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+#summaryQuestion {
+  margin-bottom: 14px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.summary-answers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.summary-answers button {
+  min-height: 46px;
+  padding: 14px;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  background: #2563eb;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.summary-answers button:hover,
+.summary-answers button:focus-visible {
+  background: #1d4ed8;
+}
+
+.summary-feedback {
+  min-height: 0;
+  margin: 16px 0 0;
+  padding: 0;
+  border-radius: 8px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.summary-feedback.correct,
+.summary-feedback.wrong {
+  padding: 12px;
+}
+
+.summary-feedback.correct {
+  color: var(--success);
+  background: var(--soft-green);
+}
+
+.summary-feedback.wrong {
+  color: var(--error);
+  background: var(--soft-rose);
+}
+
+@media (max-width: 720px) {
+  .summary-intro {
+    display: grid;
+  }
+
+  .summary-answers {
+    grid-template-columns: 1fr;
+  }
+
+  .road-wrap {
+    padding: 0 24px;
+  }
+
+  .road-line {
+    left: 24px;
+    right: 24px;
+  }
+
+  .road-car {
+    left: 10px;
+  }
+}
