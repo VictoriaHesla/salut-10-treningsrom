@@ -11,6 +11,8 @@ Struktur:
 - `summary.css`: utseende for oppsummeringsspill
 - `summary.js`: 20 stopp i oppsummeringsspillet
 - `summary-car.js`: responsiv bilbevegelse i oppsummeringsspillet
+- `sound.css`: utseende for lydknapp
+- `sound.js`: valgfri bakgrunnslyd og svarlyder
 
 Første modul inneholder:
 
@@ -25,6 +27,7 @@ Første modul inneholder:
 - opplesing av franske eksempelsetninger
 - opptak, ny innspilling og avspilling av egen stemme
 - oppsummeringsspill med bilreise og 20 stopp
+- valgfri rolig lyd og korte svarlyder
 
 Planlagte moduler:
 
