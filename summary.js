@@ -1,127 +1,127 @@
 const summaryQuestions = [
   {
-    text: "Stopp 1: Velg riktig form: Je ___ à Paris.",
-    answers: ["habite", "habites", "habitons", "habitez"],
-    correct: "habite",
-    feedback: "Riktig. Je habite blir j'habite foran vokal."
+    text: "Stopp 1: Velg riktig form: Je ___ français.",
+    answers: ["parle", "parles", "parlons", "parlez"],
+    correct: "parle",
+    feedback: "Riktig. Je parle."
   },
   {
-    text: "Stopp 2: Hvilken setning er riktig?",
-    answers: ["Tu parles français.", "Tu parle français.", "Tu parlons français.", "Tu parlez français."],
-    correct: "Tu parles français.",
-    feedback: "Ja. Tu-formen av parler er parles."
+    text: "Stopp 2: Velg riktig eiendomsord: ___ frère est à Paris.",
+    answers: ["mon", "ma", "mes", "notre"],
+    correct: "mon",
+    feedback: "Ja. Frère er hankjønn entall: mon frère."
   },
   {
-    text: "Stopp 3: Velg riktig form: Nous ___ la région.",
+    text: "Stopp 3: Velg riktig hjelpeverb: Elle ___ partie en Corse.",
+    answers: ["a", "est", "as", "sont"],
+    correct: "est",
+    feedback: "Riktig. Partir bruker être: elle est partie."
+  },
+  {
+    text: "Stopp 4: Velg riktig form: Nous ___ la région.",
     answers: ["visite", "visites", "visitons", "visitent"],
     correct: "visitons",
     feedback: "Riktig. Nous visitons."
   },
   {
-    text: "Stopp 4: Velg riktig form: Ils ___ le train.",
+    text: "Stopp 5: Velg riktig eiendomsord: ___ amis habitent à Meaux.",
+    answers: ["mon", "ma", "mes", "son"],
+    correct: "mes",
+    feedback: "Bra. Amis er flertall: mes amis."
+  },
+  {
+    text: "Stopp 6: Passé composé med avoir: Nous ___ visité Paris.",
+    answers: ["sommes", "avons", "êtes", "ont"],
+    correct: "avons",
+    feedback: "Riktig. Visiter bruker avoir: nous avons visité."
+  },
+  {
+    text: "Stopp 7: Hvilken setning er riktig?",
+    answers: ["Tu parles français.", "Tu parle français.", "Tu parlons français.", "Tu parlez français."],
+    correct: "Tu parles français.",
+    feedback: "Ja. Tu-formen av parler er parles."
+  },
+  {
+    text: "Stopp 8: Velg riktig eiendomsord: ___ mère aime la Guyane.",
+    answers: ["ton", "ta", "tes", "leur"],
+    correct: "ta",
+    feedback: "Riktig. Mère er hunkjønn entall: ta mère."
+  },
+  {
+    text: "Stopp 9: Velg riktig partisipp: Elle est ___ à Paris.",
+    answers: ["allé", "allée", "allés", "aller"],
+    correct: "allée",
+    feedback: "Riktig. Elle gir allée med ekstra e."
+  },
+  {
+    text: "Stopp 10: Velg riktig form: Ils ___ le train.",
     answers: ["attend", "attends", "attendons", "attendent"],
     correct: "attendent",
     feedback: "Bra. Ils attendent."
   },
   {
-    text: "Stopp 5: Hvilken form hører til elle?",
-    answers: ["suis", "es", "est", "sommes"],
-    correct: "est",
-    feedback: "Riktig. Elle est."
+    text: "Stopp 11: Hvilket ord passer? Vi liker ___ région.",
+    answers: ["notre", "nos", "votre", "leurs"],
+    correct: "notre",
+    feedback: "Riktig. Région er entall: notre région."
   },
   {
-    text: "Stopp 6: Oversett: Vi har en bil.",
-    answers: ["Nous sommes une voiture.", "Nous avons une voiture.", "Nous avez une voiture.", "Nous ont une voiture."],
-    correct: "Nous avons une voiture.",
-    feedback: "Riktig. Vi har = nous avons."
+    text: "Stopp 12: Velg riktig setning.",
+    answers: ["Ils sont arrivés.", "Ils ont arrivés.", "Ils est arrivés.", "Ils sommes arrivés."],
+    correct: "Ils sont arrivés.",
+    feedback: "Riktig. Arriver bruker être."
   },
   {
-    text: "Stopp 7: Velg riktig form: Vous ___ une carte.",
-    answers: ["avez", "avons", "ont", "as"],
-    correct: "avez",
-    feedback: "Ja. Vous avez."
+    text: "Stopp 13: Velg riktig form: Elle ___ une ville.",
+    answers: ["choisis", "choisit", "choisissons", "choisissez"],
+    correct: "choisit",
+    feedback: "Ja. Elle choisit."
   },
   {
-    text: "Stopp 8: Hvilken setning er riktig?",
-    answers: ["Elle finit le texte.", "Elle finis le texte.", "Elle finissons le texte.", "Elle finissez le texte."],
-    correct: "Elle finit le texte.",
-    feedback: "Riktig. Elle finit."
+    text: "Stopp 14: Hvilket eiendomsord er flertall?",
+    answers: ["ma", "ta", "sa", "ses"],
+    correct: "ses",
+    feedback: "Riktig. Ses brukes foran flertall."
   },
   {
-    text: "Stopp 9: Velg riktig form: Nous ___ le chapitre.",
-    answers: ["finis", "finit", "finissons", "finissent"],
-    correct: "finissons",
-    feedback: "Riktig. Nous finissons."
+    text: "Stopp 15: Oversett: Jeg dro til Paris.",
+    answers: ["J'ai allé à Paris.", "Je suis allé à Paris.", "Je suis aller à Paris.", "J'ai aller à Paris."],
+    correct: "Je suis allé à Paris.",
+    feedback: "Riktig. Aller bruker être."
   },
   {
-    text: "Stopp 10: Velg riktig form: Mes amis ___ Paris.",
-    answers: ["aime", "aimes", "aimons", "aiment"],
-    correct: "aiment",
-    feedback: "Bra. Mes amis = ils, altså aiment."
+    text: "Stopp 16: Velg riktig form: Nous ___ un plan.",
+    answers: ["ai", "as", "avons", "ont"],
+    correct: "avons",
+    feedback: "Riktig. Nous avons."
   },
   {
-    text: "Stopp 11: Hvilket verb er avoir?",
-    answers: ["å være", "å ha", "å snakke", "å vente"],
-    correct: "å ha",
-    feedback: "Riktig. Avoir betyr å ha."
+    text: "Stopp 17: Velg riktig eiendomsord: Ils voyagent avec ___ parents.",
+    answers: ["leur", "leurs", "sa", "son"],
+    correct: "leurs",
+    feedback: "Riktig. Parents er flertall: leurs parents."
   },
   {
-    text: "Stopp 12: Hvilket verb er être?",
-    answers: ["å være", "å ha", "å bo", "å besøke"],
-    correct: "å være",
-    feedback: "Riktig. Être betyr å være."
-  },
-  {
-    text: "Stopp 13: Velg riktig form: On ___ à Meaux.",
-    answers: ["suis", "es", "est", "sommes"],
-    correct: "est",
-    feedback: "Ja. On bruker ofte samme form som il/elle: on est."
-  },
-  {
-    text: "Stopp 14: Hvilken setning er riktig?",
-    answers: ["Lina et Sara sont contentes.", "Lina et Sara est contentes.", "Lina et Sara sommes contentes.", "Lina et Sara suis contentes."],
-    correct: "Lina et Sara sont contentes.",
-    feedback: "Riktig. To personer = flertall, elles sont."
-  },
-  {
-    text: "Stopp 15: Velg riktig form: Je ___ un billet.",
-    answers: ["vends", "vend", "vendons", "vendent"],
-    correct: "vends",
-    feedback: "Riktig. Je vends."
-  },
-  {
-    text: "Stopp 16: Velg riktig form: Il ___ à la question.",
-    answers: ["réponds", "répond", "répondons", "répondent"],
-    correct: "répond",
-    feedback: "Bra. Il répond."
-  },
-  {
-    text: "Stopp 17: Hvilken setning betyr: De bor i Frankrike?",
-    answers: ["Ils habitent en France.", "Ils habite en France.", "Ils habitons en France.", "Ils habitez en France."],
-    correct: "Ils habitent en France.",
-    feedback: "Riktig. Ils habitent en France."
-  },
-  {
-    text: "Stopp 18: Velg riktig form: Lucas ___ une photo.",
-    answers: ["ai", "as", "a", "ont"],
-    correct: "a",
-    feedback: "Ja. Lucas = il, og il a."
+    text: "Stopp 18: Velg riktig partisipp: Elles sont ___ de la gare.",
+    answers: ["sorti", "sortie", "sorties", "sortir"],
+    correct: "sorties",
+    feedback: "Ja. Elles gir sorties."
   },
   {
     text: "Stopp 19: Hvilken setning er riktig?",
-    answers: ["Vous répondez vite.", "Vous réponds vite.", "Vous répond vite.", "Vous répondent vite."],
-    correct: "Vous répondez vite.",
-    feedback: "Riktig. Vous-formen slutter ofte på -ez."
+    answers: ["Ma famille et moi sommes en Corse.", "Ma famille et moi est en Corse.", "Ma famille et moi sont en Corse.", "Ma famille et moi êtes en Corse."],
+    correct: "Ma famille et moi sommes en Corse.",
+    feedback: "Riktig. Ma famille et moi = nous."
   },
   {
     text: "Stopp 20: Siste stopp! Velg riktig setning.",
-    answers: ["Ma famille et moi sommes en Corse.", "Ma famille et moi est en Corse.", "Ma famille et moi sont en Corse.", "Ma famille et moi êtes en Corse."],
-    correct: "Ma famille et moi sommes en Corse.",
-    feedback: "Riktig. Ma famille et moi = nous, og nous sommes."
+    answers: ["Elle a visité Paris.", "Elle est visité Paris.", "Elle as visité Paris.", "Elle ont visité Paris."],
+    correct: "Elle a visité Paris.",
+    feedback: "Riktig. Visiter bruker avoir."
   }
 ];
 
-const summaryKey = "salut10-module1-summary-v1";
+const summaryKey = "salut10-module1-summary-v2";
 const summaryState = loadSummaryState();
 
 const summaryCounter = document.querySelector("#summaryCounter");
