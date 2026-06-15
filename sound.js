@@ -3,6 +3,7 @@ let audioContext;
 let soundEnabled = localStorage.getItem(soundKey) === "true";
 
 applyTextCorrections();
+insertDeresPractice();
 
 const soundButton = document.createElement("button");
 soundButton.type = "button";
@@ -60,6 +61,95 @@ function applyTextCorrections() {
       `<p class="possessive-note"><strong>Obs:</strong> På norsk kan "deres" bety både <strong>til dere</strong> og <strong>til dem</strong>. På fransk blir det <strong>votre/vos</strong> for dere, men <strong>leur/leurs</strong> for dem.</p>`
     );
   }
+}
+
+function insertDeresPractice() {
+  const grid = document.querySelector("#eiendomsord .activity-grid");
+  if (!grid || document.querySelector("[data-check='possessifs-9']")) return;
+
+  grid.insertAdjacentHTML(
+    "beforeend",
+    `<article class="activity-card deres-card">
+      <h3>🧭 Deres: dere eller dem?</h3>
+      <p>Spør først: betyr "deres" <strong>til dere</strong> eller <strong>til dem</strong>? Se deretter på entall eller flertall.</p>
+      <div class="activity-row"><label>bilen til dere = ___ voiture</label><select data-answer="votre"><option></option><option>votre</option><option>vos</option><option>leur</option><option>leurs</option></select></div>
+      <div class="activity-row"><label>bilene til dere = ___ voitures</label><select data-answer="vos"><option></option><option>votre</option><option>vos</option><option>leur</option><option>leurs</option></select></div>
+      <div class="activity-row"><label>bilen til dem = ___ voiture</label><select data-answer="leur"><option></option><option>votre</option><option>vos</option><option>leur</option><option>leurs</option></select></div>
+      <div class="activity-row"><label>bilene til dem = ___ voitures</label><select data-answer="leurs"><option></option><option>votre</option><option>vos</option><option>leur</option><option>leurs</option></select></div>
+      <div class="activity-row"><label>votre/vos betyr at eieren er:</label><select data-answer="dere"><option></option><option>dere</option><option>de/dem</option><option>han/hun</option></select></div>
+      <div class="activity-row"><label>leur/leurs betyr at eieren er:</label><select data-answer="de/dem"><option></option><option>dere</option><option>de/dem</option><option>jeg</option></select></div>
+      <button class="check-button" data-check="possessifs-9" type="button">Sjekk svar</button>
+      <p class="activity-feedback"></p>
+    </article>`
+  );
+
+  const card = document.querySelector(".deres-card");
+  const button = card.querySelector(".check-button");
+  const completed = getCompletedSoundActivityIds();
+  if (completed.has("possessifs-9")) card.classList.add("activity-complete");
+
+  button.addEventListener("click", () => checkDeresPractice(card, button));
+  card.querySelectorAll("[data-answer]").forEach((field) => {
+    field.addEventListener("change", () => clearDeresField(field));
+    field.addEventListener("input", () => clearDeresField(field));
+  });
+}
+
+function checkDeresPractice(card, button) {
+  const fields = card.querySelectorAll("[data-answer]");
+  let correct = 0;
+
+  fields.forEach((field) => {
+    const expected = normalizeSoundAnswer(field.dataset.answer);
+    const given = normalizeSoundAnswer(field.value);
+    const isCorrect = expected === given;
+    field.classList.toggle("is-correct", isCorrect);
+    field.classList.toggle("is-wrong", !isCorrect);
+    if (isCorrect) correct += 1;
+  });
+
+  const feedback = card.querySelector(".activity-feedback");
+  const allCorrect = correct === fields.length;
+  feedback.textContent = allCorrect
+    ? "✅ Riktig. Nå skiller du mellom deres = til dere og deres = til dem."
+    : `🔁 ${correct} av ${fields.length} riktige. Se først på hvem som eier: dere eller de/dem.`;
+  feedback.className = allCorrect ? "activity-feedback correct" : "activity-feedback wrong";
+
+  if (allCorrect) {
+    const completed = getCompletedSoundActivityIds();
+    completed.add(button.dataset.check);
+    localStorage.setItem("salut10-module1-activity-progress-v1", JSON.stringify([...completed]));
+    card.classList.add("activity-complete");
+    document.dispatchEvent(new CustomEvent("moduleProgressChanged"));
+  }
+}
+
+function clearDeresField(field) {
+  field.classList.remove("is-wrong", "is-correct");
+  const feedback = field.closest(".activity-card")?.querySelector(".activity-feedback");
+  if (feedback?.classList.contains("wrong")) {
+    feedback.textContent = "";
+    feedback.className = "activity-feedback";
+  }
+}
+
+function getCompletedSoundActivityIds() {
+  try {
+    const stored = JSON.parse(localStorage.getItem("salut10-module1-activity-progress-v1"));
+    return new Set(Array.isArray(stored) ? stored : []);
+  } catch (error) {
+    return new Set();
+  }
+}
+
+function normalizeSoundAnswer(value) {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[.!?]/g, "")
+    .replace(/\s+/g, " ");
 }
 
 async function ensureAudio() {
