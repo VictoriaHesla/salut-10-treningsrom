@@ -193,6 +193,110 @@
   font-weight: 700;
 }
 
+/* Extra large visual cards for the être-verb illustrations. */
+.etre-figure-board {
+  padding: 30px !important;
+}
+
+.etre-figure-grid {
+  grid-template-columns: 1fr !important;
+  gap: 22px !important;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.etre-card {
+  min-height: 560px !important;
+  grid-template-rows: 420px auto auto !important;
+  padding: 24px !important;
+}
+
+.etre-scene {
+  min-height: 420px !important;
+}
+
+.etre-person {
+  font-size: 10.5rem !important;
+}
+
+.etre-object,
+.etre-arrow {
+  font-size: 7rem !important;
+}
+
+.etre-stairs {
+  font-size: 8.6rem !important;
+}
+
+.etre-door {
+  font-size: 10.5rem !important;
+}
+
+.etre-ground {
+  bottom: 44px !important;
+  height: 12px !important;
+}
+
+.etre-card strong {
+  font-size: 1.6rem !important;
+}
+
+.etre-card span {
+  font-size: 1.08rem !important;
+}
+
+.scene-leave .etre-arrow,
+.scene-go .etre-arrow,
+.scene-out .etre-arrow {
+  top: 132px !important;
+}
+
+.scene-down .etre-arrow {
+  bottom: 88px !important;
+}
+
+.scene-up .etre-arrow {
+  top: 76px !important;
+}
+
+.scene-in .etre-arrow {
+  right: 180px !important;
+  top: 136px !important;
+}
+
+@media (max-width: 720px) {
+  .etre-figure-board {
+    padding: 16px !important;
+  }
+
+  .etre-card {
+    min-height: 430px !important;
+    grid-template-rows: 310px auto auto !important;
+    padding: 16px !important;
+  }
+
+  .etre-scene {
+    min-height: 310px !important;
+  }
+
+  .etre-person {
+    font-size: 7.2rem !important;
+  }
+
+  .etre-object,
+  .etre-arrow {
+    font-size: 5rem !important;
+  }
+
+  .etre-stairs {
+    font-size: 6.2rem !important;
+  }
+
+  .etre-door {
+    font-size: 7.2rem !important;
+  }
+}
+
 @media (max-width: 880px) {
   .station-nav,
   .activity-grid {
