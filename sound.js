@@ -5,6 +5,7 @@ let soundEnabled = localStorage.getItem(soundKey) === "true";
 applyTextCorrections();
 insertDeresPractice();
 enhancePasseTranslationTask();
+insertAvoirEtreAgreementPractice();
 
 const soundButton = document.createElement("button");
 soundButton.type = "button";
@@ -90,6 +91,42 @@ function enhancePasseTranslationTask() {
   );
 }
 
+function insertAvoirEtreAgreementPractice() {
+  const grid = document.querySelector("#passe-compose .activity-grid");
+  if (!grid || document.querySelector("[data-check='passe-9']")) return;
+
+  grid.insertAdjacentHTML(
+    "beforeend",
+    `<article class="activity-card avoir-etre-card">
+      <h3>🔎 Avoir eller être: bøyer partisippet?</h3>
+      <p>Finn først hjelpeverbet. Med <strong>avoir</strong> endrer vi vanligvis ikke partisippet. Med <strong>être</strong> må partisippet passe med personen.</p>
+      <div class="activity-row"><label>Nous ___ visité Paris. Hjelpeverb?</label><select data-answer="avons"><option></option><option>avons</option><option>sommes</option></select></div>
+      <div class="activity-row"><label>Nous avons ___ Paris.</label><select data-answer="visité"><option></option><option>visité</option><option>visités</option><option>visitées</option></select></div>
+      <div class="activity-row"><label>Elles ___ arrivées en Corse. Hjelpeverb?</label><select data-answer="sont"><option></option><option>ont</option><option>sont</option></select></div>
+      <div class="activity-row"><label>Elles sont ___ en Corse.</label><select data-answer="arrivées"><option></option><option>arrivé</option><option>arrivée</option><option>arrivées</option></select></div>
+      <div class="activity-row"><label>Elle ___ regardé les photos. Hjelpeverb?</label><select data-answer="a"><option></option><option>a</option><option>est</option></select></div>
+      <div class="activity-row"><label>Elle a ___ les photos.</label><select data-answer="regardé"><option></option><option>regardé</option><option>regardée</option><option>regardées</option></select></div>
+      <div class="activity-row"><label>Ils ___ partis de la gare. Hjelpeverb?</label><select data-answer="sont"><option></option><option>ont</option><option>sont</option></select></div>
+      <div class="activity-row"><label>Ils sont ___ de la gare.</label><select data-answer="partis"><option></option><option>parti</option><option>partie</option><option>partis</option><option>parties</option></select></div>
+      <div class="activity-row"><label>Med avoir gjør vi vanligvis dette med partisippet:</label><select data-answer="lar det stå"><option></option><option>lar det stå</option><option>legger alltid til e</option><option>legger alltid til s</option></select></div>
+      <div class="activity-row"><label>Med être må partisippet passe med:</label><select data-answer="personen"><option></option><option>personen</option><option>stedet</option><option>eiendomsordet</option></select></div>
+      <button class="check-button" data-check="passe-9" type="button">Sjekk svar</button>
+      <p class="activity-feedback"></p>
+    </article>`
+  );
+
+  const card = document.querySelector(".avoir-etre-card");
+  const button = card.querySelector(".check-button");
+  const completed = getCompletedSoundActivityIds();
+  if (completed.has("passe-9")) card.classList.add("activity-complete");
+
+  button.addEventListener("click", () => checkAvoirEtrePractice(card, button));
+  card.querySelectorAll("[data-answer]").forEach((field) => {
+    field.addEventListener("change", () => clearDeresField(field));
+    field.addEventListener("input", () => clearDeresField(field));
+  });
+}
+
 function insertDeresPractice() {
   const grid = document.querySelector("#eiendomsord .activity-grid");
   if (!grid || document.querySelector("[data-check='possessifs-9']")) return;
@@ -140,6 +177,35 @@ function checkDeresPractice(card, button) {
   feedback.textContent = allCorrect
     ? "✅ Riktig. Nå skiller du mellom deres = til dere og deres = til dem."
     : `🔁 ${correct} av ${fields.length} riktige. Se først på hvem som eier: dere eller de/dem.`;
+  feedback.className = allCorrect ? "activity-feedback correct" : "activity-feedback wrong";
+
+  if (allCorrect) {
+    const completed = getCompletedSoundActivityIds();
+    completed.add(button.dataset.check);
+    localStorage.setItem("salut10-module1-activity-progress-v1", JSON.stringify([...completed]));
+    card.classList.add("activity-complete");
+    document.dispatchEvent(new CustomEvent("moduleProgressChanged"));
+  }
+}
+
+function checkAvoirEtrePractice(card, button) {
+  const fields = card.querySelectorAll("[data-answer]");
+  let correct = 0;
+
+  fields.forEach((field) => {
+    const expected = normalizeSoundAnswer(field.dataset.answer);
+    const given = normalizeSoundAnswer(field.value);
+    const isCorrect = expected === given;
+    field.classList.toggle("is-correct", isCorrect);
+    field.classList.toggle("is-wrong", !isCorrect);
+    if (isCorrect) correct += 1;
+  });
+
+  const feedback = card.querySelector(".activity-feedback");
+  const allCorrect = correct === fields.length;
+  feedback.textContent = allCorrect
+    ? "✅ Riktig. Med avoir står partisippet vanligvis fast. Med être passer det med personen."
+    : `🔁 ${correct} av ${fields.length} riktige. Finn hjelpeverbet først: avoir eller être?`;
   feedback.className = allCorrect ? "activity-feedback correct" : "activity-feedback wrong";
 
   if (allCorrect) {
