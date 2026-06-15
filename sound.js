@@ -2,6 +2,8 @@ const soundKey = "salut10-sound-enabled";
 let audioContext;
 let soundEnabled = localStorage.getItem(soundKey) === "true";
 
+applyTextCorrections();
+
 const soundButton = document.createElement("button");
 soundButton.type = "button";
 soundButton.className = "sound-toggle";
@@ -42,6 +44,23 @@ document.addEventListener("click", (event) => {
     }
   }, 40);
 });
+
+function applyTextCorrections() {
+  const possessiveLabels = document.querySelectorAll("#eiendomsord .activity-row label");
+  possessiveLabels.forEach((label) => {
+    if (label.textContent.trim() === "deres bil = ___ voiture") {
+      label.textContent = "bilen til dem = ___ voiture";
+    }
+  });
+
+  const ruleCard = document.querySelector("#eiendomsord .rule-card");
+  if (ruleCard && !document.querySelector(".possessive-note")) {
+    ruleCard.insertAdjacentHTML(
+      "beforeend",
+      `<p class="possessive-note"><strong>Obs:</strong> På norsk kan "deres" bety både <strong>til dere</strong> og <strong>til dem</strong>. På fransk blir det <strong>votre/vos</strong> for dere, men <strong>leur/leurs</strong> for dem.</p>`
+    );
+  }
+}
 
 async function ensureAudio() {
   if (!audioContext) {
