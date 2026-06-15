@@ -4,6 +4,7 @@ let soundEnabled = localStorage.getItem(soundKey) === "true";
 
 applyTextCorrections();
 insertDeresPractice();
+enhancePasseTranslationTask();
 
 const soundButton = document.createElement("button");
 soundButton.type = "button";
@@ -61,6 +62,32 @@ function applyTextCorrections() {
       `<p class="possessive-note"><strong>Obs:</strong> På norsk kan "deres" bety både <strong>til dere</strong> og <strong>til dem</strong>. På fransk blir det <strong>votre/vos</strong> for dere, men <strong>leur/leurs</strong> for dem.</p>`
     );
   }
+}
+
+function enhancePasseTranslationTask() {
+  const cards = document.querySelectorAll("#passe-compose .activity-card");
+  const translationCard = [...cards].find((card) => card.querySelector("h3")?.textContent.includes("Oversett kort"));
+  if (!translationCard || translationCard.dataset.translationEnhanced) return;
+
+  translationCard.dataset.translationEnhanced = "true";
+  translationCard.querySelectorAll(".activity-row label").forEach((label) => {
+    const text = label.textContent.trim();
+    if (text === "Jeg dro til Paris. = Je ___ allé à Paris.") {
+      label.textContent = "Jeg dro til Paris. (aller) = Je ___ allé à Paris.";
+    }
+    if (text === "Hun kom til Meaux. = Elle est ___ à Meaux.") {
+      label.textContent = "Hun ankom Meaux. (arriver) = Elle est ___ à Meaux.";
+    }
+    if (text === "Vi besøkte Korsika. = Nous avons ___ la Corse.") {
+      label.textContent = "Vi besøkte Korsika. (visiter) = Nous avons ___ la Corse.";
+    }
+  });
+
+  const heading = translationCard.querySelector("h3");
+  heading.insertAdjacentHTML(
+    "afterend",
+    `<p class="passe-translation-note">Bruk verbet i parentes. <strong>Visiter</strong> får partisippet <strong>visité</strong>; her legger vi ikke til s etter <strong>avoir</strong>.</p>`
+  );
 }
 
 function insertDeresPractice() {
