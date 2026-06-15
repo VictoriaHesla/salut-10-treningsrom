@@ -22,14 +22,6 @@ const summaryQuestions = [
 ];
 
 const summaryKey = "salut10-module1-summary-v2";
-const verbProgressKey = "salut10-progress-v2";
-const activityProgressKey = "salut10-module1-activity-progress-v1";
-const requiredActivities = [
-  "possessifs-1", "possessifs-2", "possessifs-3", "possessifs-4",
-  "possessifs-5", "possessifs-6", "possessifs-7", "possessifs-8", "possessifs-9",
-  "passe-1", "passe-2", "passe-3", "passe-4",
-  "passe-5", "passe-6", "passe-7", "passe-8", "passe-9"
-];
 const summaryState = loadSummaryState();
 
 const summaryCounter = document.querySelector("#summaryCounter");
@@ -41,10 +33,6 @@ const summaryReset = document.querySelector("#summaryReset");
 const roadCar = document.querySelector("#roadCar");
 
 renderSummaryGame();
-document.addEventListener("moduleProgressChanged", renderSummaryGame);
-window.setInterval(() => {
-  if (!isSummaryUnlocked()) renderSummaryGame();
-}, 1500);
 
 summaryReset.addEventListener("click", () => {
   summaryState.current = 0;
@@ -55,20 +43,8 @@ summaryReset.addEventListener("click", () => {
 });
 
 function renderSummaryGame() {
-  const lock = getSummaryLockStatus();
-  if (!lock.unlocked) {
-    summaryCounter.textContent = "Reiseruta er låst";
-    summaryScore.textContent = `${lock.done} av ${lock.total} deler fullført`;
-    summaryQuestion.textContent = "🔒 Fullfør verbverkstedet, eiendomsord og passé composé før bilen kan starte.";
-    summaryFeedback.textContent = lock.message;
-    summaryFeedback.className = "summary-feedback wrong";
-    summaryAnswers.innerHTML = "";
-    summaryReset.disabled = true;
-    roadCar.style.transform = "translateX(0px)";
-    return;
-  }
-
   summaryReset.disabled = false;
+
   const current = Math.min(summaryState.current, summaryQuestions.length - 1);
   const question = summaryQuestions[current];
   const isFinished = summaryState.finished;
@@ -115,47 +91,6 @@ function checkSummaryAnswer(answer) {
 
   summaryFeedback.textContent = "🔁 Ikke helt. Prøv en gang til før bilen kjører videre.";
   summaryFeedback.className = "summary-feedback wrong";
-}
-
-function getSummaryLockStatus() {
-  const verbDone = getVerbAnsweredCount() >= 30;
-  const activities = getCompletedActivities();
-  const completedGrammar = requiredActivities.filter((id) => activities.has(id)).length;
-  const done = (verbDone ? 1 : 0) + completedGrammar;
-  const total = 1 + requiredActivities.length;
-  const missing = [];
-
-  if (!verbDone) missing.push("verbverkstedet");
-  if (completedGrammar < requiredActivities.length) missing.push("grammatikkortene");
-
-  return {
-    unlocked: verbDone && completedGrammar === requiredActivities.length,
-    done,
-    total,
-    message: missing.length ? `Gjenstår: ${missing.join(" og ")}.` : "Klar!"
-  };
-}
-
-function isSummaryUnlocked() {
-  return getSummaryLockStatus().unlocked;
-}
-
-function getVerbAnsweredCount() {
-  try {
-    const stored = JSON.parse(localStorage.getItem(verbProgressKey));
-    return Array.isArray(stored?.verb?.answered) ? stored.verb.answered.length : 0;
-  } catch (error) {
-    return 0;
-  }
-}
-
-function getCompletedActivities() {
-  try {
-    const stored = JSON.parse(localStorage.getItem(activityProgressKey));
-    return new Set(Array.isArray(stored) ? stored : []);
-  } catch (error) {
-    return new Set();
-  }
 }
 
 function loadSummaryState() {
