@@ -3,272 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modul 1 - Tu viens de quelle région?</title>
+  <title>Modul 1 - Et toi, qui es-tu?</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="grammar.css" />
-  <link rel="stylesheet" href="summary.css" />
-  <link rel="stylesheet" href="sound.css" />
+  <link rel="stylesheet" href="blog.css" />
 </head>
-<body>
-  <header class="topbar">
-    <div>
-      <a class="back-link" href="index.html">← Forside</a>
-      <p class="eyebrow">Modul 1</p>
-      <h1>Tu viens de quelle région?</h1>
-    </div>
-    <div class="score-card" aria-live="polite">
-      <span class="score-icon">⭐</span>
-      <div>
-        <strong id="totalScore">0</strong>
-        <span>poeng samlet</span>
-      </div>
-    </div>
+<body class="blog-page">
+  <header class="blog-topbar">
+    <a class="back-link" href="index.html">← Forside</a>
+    <p class="eyebrow">Modul 1</p>
+    <h1>Et toi, qui es-tu ?</h1>
   </header>
 
-  <main>
-    <section class="map-panel" aria-labelledby="mapTitle">
-      <div class="map-copy">
-        <p class="eyebrow">Kapittelmodul</p>
-        <h2 id="mapTitle">Klar for første reise?</h2>
-        <p>Her øver du på verb, eiendomsord og passé composé mens du jobber med steder og regioner.</p>
+  <main class="blog-shell">
+    <section class="blog-hero" aria-labelledby="blogTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">Bloggverksted</p>
+        <h2 id="blogTitle">Bienvenue sur mon blog !</h2>
+        <label class="name-label" for="studentName">Ton prénom</label>
+        <input id="studentName" class="name-input" type="text" maxlength="24" placeholder="Skriv fornavnet ditt" autocomplete="given-name" />
+        <p class="blog-byline" id="blogByline">Le blog de ...</p>
       </div>
-      <div class="postcard-row" aria-hidden="true">
-        <div class="postcard paris"><span>🗼</span><strong>Paris</strong></div>
-        <div class="postcard corse"><span>🏝️</span><strong>Corse</strong></div>
-        <div class="postcard guyane"><span>🌿</span><strong>Guyane</strong></div>
+      <div class="scrap-hero-art" aria-hidden="true">
+        <div class="paper-note note-a">Salut !</div>
+        <div class="paper-note note-b">Moi</div>
+        <div class="sticker laptop">💻</div>
+        <div class="sticker heart">♡</div>
+        <div class="sticker pen">✏️</div>
       </div>
     </section>
 
-    <nav class="station-nav" aria-label="Stasjoner i modul 1">
-      <a href="#verbverksted">🛠️ Verb</a>
-      <a href="#eiendomsord">🏠 Eiendomsord</a>
-      <a href="#passe-compose">🚉 Passé composé</a>
-      <a href="#oppsummering">🚗 Oppsummering</a>
-    </nav>
-
-    <section class="module-grid single-module" aria-label="Modulstatus">
-      <article class="module-card active" data-module="verb">
-        <div class="module-visual">🧭</div>
-        <div>
-          <p class="tag">Modul 1</p>
-          <h2>Tu viens de quelle région?</h2>
-          <p>Verbverksted, eiendomsord, passé composé og oppsummeringsspill.</p>
-          <div class="progress"><span id="verbProgress"></span></div>
-          <p class="progress-text" id="verbProgressText">Verb: 0 av 30 oppgaver</p>
-        </div>
+    <section class="blog-guide" aria-label="Ord og grammatikk i modulen">
+      <article>
+        <strong>Du øver på</strong>
+        <span>presentasjon, spørsmål, eiendomsord, adjektiv, presens og passé composé med avoir.</span>
+      </article>
+      <article>
+        <strong>Tips</strong>
+        <span>Bruk gjerne side 8-11 i boka for å finne ord og setningsstartere.</span>
+      </article>
+      <article>
+        <strong>Respons</strong>
+        <span>Hver tekst får en enkel sjekkliste som hjelper deg videre.</span>
       </article>
     </section>
 
-    <section class="workspace" id="verbverksted" aria-live="polite">
-      <div class="lesson-card">
-        <div class="lesson-header">
-          <div>
-            <p class="eyebrow">Stasjon 1 · Verbverksted</p>
-            <h2 id="questionTitle">Oppgave</h2>
+    <section class="blog-layout">
+      <div class="blog-editor" aria-label="Skriv blogginnlegg">
+        <article class="blog-card" data-section="salut">
+          <div class="blog-illustration desk"><span>💻</span><span>☕</span><span>📓</span></div>
+          <div class="blog-card-copy">
+            <p class="step-label">1 · Présentation</p>
+            <h2>Salut !</h2>
+            <p>Skriv litt om deg selv: navn, alder, språk, personlighet eller noe du liker.</p>
+            <div class="starter-box">Je m'appelle ... · J'ai ... ans · Je suis ... · J'aime ...</div>
+            <textarea data-text="salut" rows="6" placeholder="Salut ! Je m'appelle ..."></textarea>
+            <button class="feedback-button" type="button" data-feedback="salut">Få respons</button>
+            <div class="blog-feedback" data-output="salut"></div>
           </div>
-          <button class="ghost-button" id="resetButton" type="button">🔁 Start nivået på nytt</button>
-        </div>
+        </article>
 
-        <div class="level-panel" aria-label="Velg vanskelighetsgrad">
-          <button class="level-button active" type="button" data-level="blandet">🎲 Blandet</button>
-          <button class="level-button" type="button" data-level="lett">🌱 Lett</button>
-          <button class="level-button" type="button" data-level="middels">🎯 Middels</button>
-          <button class="level-button" type="button" data-level="utfordring">🔥 Utfordring</button>
-        </div>
-
-        <div class="question-box">
-          <p class="question-count" id="questionCount">Oppgave 1 av 30</p>
-          <p id="questionText"></p>
-          <div class="answer-grid" id="answerGrid"></div>
-          <div class="help-row">
-            <button class="help-button" id="ruleButton" type="button">💡 Vis regel</button>
-            <button class="help-button" id="hintButton" type="button">🧩 Vis hint</button>
+        <article class="blog-card" data-section="famille">
+          <div class="blog-illustration family"><span>👥</span><span>🏡</span><span>♡</span></div>
+          <div class="blog-card-copy">
+            <p class="step-label">2 · Possessifs</p>
+            <h2>Ma famille</h2>
+            <p>Skriv om familien din. Øv på mon, ma, mes, son, sa, ses, notre eller nos.</p>
+            <div class="starter-box">Dans ma famille, il y a ... · Mon frère ... · Ma mère ... · Mes parents ...</div>
+            <textarea data-text="famille" rows="6" placeholder="Dans ma famille, il y a ..."></textarea>
+            <button class="feedback-button" type="button" data-feedback="famille">Få respons</button>
+            <div class="blog-feedback" data-output="famille"></div>
           </div>
-          <p class="support-text" id="supportText"></p>
-          <p class="feedback" id="feedback"></p>
-        </div>
+        </article>
+
+        <article class="blog-card" data-section="chezmoi">
+          <div class="blog-illustration town"><span>🏘️</span><span>📍</span><span>🌳</span></div>
+          <div class="blog-card-copy">
+            <p class="step-label">3 · Lieu</p>
+            <h2>Chez moi</h2>
+            <p>Skriv litt om hjemstedet ditt. Bruk gjerne il y a, c'est eller j'habite.</p>
+            <div class="starter-box">J'habite à ... · C'est ... · Dans ma ville, il y a ...</div>
+            <textarea data-text="chezmoi" rows="6" placeholder="J'habite à ..."></textarea>
+            <button class="feedback-button" type="button" data-feedback="chezmoi">Få respons</button>
+            <div class="blog-feedback" data-output="chezmoi"></div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-section="college">
+          <div class="blog-illustration school"><span>🎒</span><span>📚</span><span>🏫</span></div>
+          <div class="blog-card-copy">
+            <p class="step-label">4 · École</p>
+            <h2>Mon collège</h2>
+            <p>Skriv litt om skolen din, fag, klasse eller skoledag.</p>
+            <div class="starter-box">Mon collège s'appelle ... · J'aime ... · Ma matière préférée est ...</div>
+            <textarea data-text="college" rows="6" placeholder="Mon collège s'appelle ..."></textarea>
+            <button class="feedback-button" type="button" data-feedback="college">Få respons</button>
+            <div class="blog-feedback" data-output="college"></div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-section="loisirs">
+          <div class="blog-illustration hobbies"><span>🎧</span><span>⚽</span><span>🎮</span><span>🎨</span></div>
+          <div class="blog-card-copy">
+            <p class="step-label">5 · Présent</p>
+            <h2>Mes loisirs</h2>
+            <p>Skriv om fritidsaktiviteter. Øv på presens: j'aime, je joue, je fais.</p>
+            <div class="starter-box">J'aime ... · Je joue au/à la ... · Je fais de ... · Le week-end, je ...</div>
+            <textarea data-text="loisirs" rows="6" placeholder="Pendant mon temps libre, j'aime ..."></textarea>
+            <button class="feedback-button" type="button" data-feedback="loisirs">Få respons</button>
+            <div class="blog-feedback" data-output="loisirs"></div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-section="plat">
+          <div class="blog-illustration food"><span>🍕</span><span>🥞</span><span>🍓</span></div>
+          <div class="blog-card-copy">
+            <p class="step-label">6 · Goûts</p>
+            <h2>Mon plat préféré</h2>
+            <p>Skriv om mat du liker, favorittretten din eller hva du ikke liker.</p>
+            <div class="starter-box">Mon plat préféré est ... · J'adore ... · Je n'aime pas ... · C'est délicieux.</div>
+            <textarea data-text="plat" rows="6" placeholder="Mon plat préféré est ..."></textarea>
+            <button class="feedback-button" type="button" data-feedback="plat">Få respons</button>
+            <div class="blog-feedback" data-output="plat"></div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-section="vacances">
+          <div class="blog-illustration holiday"><span>🧳</span><span>🚆</span><span>☀️</span><span>📮</span></div>
+          <div class="blog-card-copy">
+            <p class="step-label">7 · Passé composé</p>
+            <h2>Mes vacances</h2>
+            <p>Skriv litt om hva du gjorde i ferien. Bruk passé composé med avoir.</p>
+            <div class="starter-box">Pendant les vacances, j'ai ... · J'ai visité ... · J'ai mangé ... · J'ai joué ...</div>
+            <textarea data-text="vacances" rows="6" placeholder="Pendant les vacances, j'ai ..."></textarea>
+            <button class="feedback-button" type="button" data-feedback="vacances">Få respons</button>
+            <div class="blog-feedback" data-output="vacances"></div>
+          </div>
+        </article>
       </div>
 
-      <aside class="side-panel">
-        <h2>🎧 Snakk litt fransk</h2>
-        <p>Hør setningen, les den inn, og spill av din egen stemme. Du kan prøve så mange ganger du vil.</p>
-        <div class="speech-card">
-          <p id="speechText">Je suis allé à Paris.</p>
-          <button id="listenButton" type="button">🔊 Lytt</button>
+      <aside class="blog-preview-panel" aria-label="Forhåndsvisning av bloggen">
+        <div class="preview-paper">
+          <p class="preview-kicker">Aperçu</p>
+          <h2>Bienvenue sur mon blog !</h2>
+          <p id="previewName" class="preview-name">Le blog de ...</p>
+          <div id="previewPosts" class="preview-posts"></div>
         </div>
-        <div class="record-controls">
-          <button id="recordButton" type="button">🎙️ Spill inn</button>
-          <button id="stopButton" type="button" disabled>⏹️ Stopp</button>
-          <button id="newSentenceButton" type="button">🎲 Ny setning</button>
-          <audio id="playback" controls></audio>
-        </div>
-        <p class="small-note" id="recordStatus">Opptak krever at nettleseren får tilgang til mikrofon.</p>
+        <button id="printBlog" class="print-button" type="button">Skriv ut / lagre som PDF</button>
       </aside>
-    </section>
-
-    <section class="grammar-station" id="eiendomsord">
-      <div class="station-header">
-        <div class="station-icon">🏠</div>
-        <div>
-          <p class="eyebrow">Stasjon 2</p>
-          <h2>Eiendomsord</h2>
-          <p>Eiendomsordet følger ordet som kommer etter: hankjønn, hunkjønn eller flertall.</p>
-        </div>
-      </div>
-
-      <div class="rule-card">
-        <strong>Husk:</strong> På fransk ser vi på tingen eller personen som eies. Det heter <strong>mon frère</strong>, <strong>ma soeur</strong> og <strong>mes amis</strong>.
-      </div>
-
-      <div class="table-wrap">
-        <table class="grammar-table">
-          <thead>
-            <tr><th>Eier</th><th>Entall hankjønn</th><th>Entall hunkjønn</th><th>Flertall</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>jeg</td><td>mon</td><td>ma</td><td>mes</td></tr>
-            <tr><td>du</td><td>ton</td><td>ta</td><td>tes</td></tr>
-            <tr><td>han/hun</td><td>son</td><td>sa</td><td>ses</td></tr>
-            <tr><td>vi</td><td>notre</td><td>notre</td><td>nos</td></tr>
-            <tr><td>dere</td><td>votre</td><td>votre</td><td>vos</td></tr>
-            <tr><td>de</td><td>leur</td><td>leur</td><td>leurs</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="activity-grid">
-        <article class="activity-card">
-          <h3>🎯 Velg riktig eiendomsord</h3>
-          <div class="activity-row"><label>___ frère est à Paris.</label><select data-answer="mon"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
-          <div class="activity-row"><label>___ soeur habite en Corse.</label><select data-answer="ma"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
-          <div class="activity-row"><label>___ amis visitent Meaux.</label><select data-answer="mes"><option></option><option>mon</option><option>ma</option><option>mes</option></select></div>
-          <div class="activity-row"><label>___ région est belle.</label><select data-answer="notre"><option></option><option>notre</option><option>nos</option><option>votre</option></select></div>
-          <button class="check-button" data-check="possessifs-1" type="button">Sjekk svar</button>
-          <p class="activity-feedback"></p>
-        </article>
-
-        <article class="activity-card">
-          <h3>✍️ Skriv riktig ord</h3>
-          <div class="activity-row"><label>mine venner = ___ amis</label><input data-answer="mes" autocomplete="off"></div>
-          <div class="activity-row"><label>din mor = ___ mère</label><input data-answer="ta" autocomplete="off"></div>
-          <div class="activity-row"><label>hans/hennes skole = ___ école</label><input data-answer="son" autocomplete="off"></div>
-          <div class="activity-row"><label>deres bil = ___ voiture</label><input data-answer="leur" autocomplete="off"></div>
-          <button class="check-button" data-check="possessifs-2" type="button">Sjekk svar</button>
-          <p class="activity-feedback"></p>
-        </article>
-
-        <article class="activity-card">
-          <h3>🔎 Finn eiendomsord</h3>
-          <p>Les teksten og skriv tre eiendomsord du finner.</p>
-          <div class="mini-text">Salut! Je suis à Paris avec <span class="word-chip">ma</span> classe. <span class="word-chip">Mon</span> hôtel est près de la gare. <span class="word-chip">Mes</span> amis aiment la ville.</div>
-          <div class="activity-row"><label>Ord 1</label><input data-answer="ma|mon|mes" autocomplete="off"></div>
-          <div class="activity-row"><label>Ord 2</label><input data-answer="ma|mon|mes" autocomplete="off"></div>
-          <div class="activity-row"><label>Ord 3</label><input data-answer="ma|mon|mes" autocomplete="off"></div>
-          <button class="check-button" data-check="possessifs-3" type="button">Sjekk svar</button>
-          <p class="activity-feedback"></p>
-        </article>
-
-        <article class="activity-card">
-          <h3>🧩 Forstå regelen</h3>
-          <div class="activity-row"><label>Pourquoi: mon école?</label><select data-answer="école starter med vokal"><option></option><option>école starter med vokal</option><option>école er flertall</option><option>école er hankjønn</option></select></div>
-          <div class="activity-row"><label>Hva bestemmer om vi bruker mon/ma/mes?</label><select data-answer="ordet etter"><option></option><option>ordet etter</option><option>personen som eier</option><option>verbet i setningen</option></select></div>
-          <button class="check-button" data-check="possessifs-4" type="button">Sjekk svar</button>
-          <p class="activity-feedback"></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="grammar-station" id="passe-compose">
-      <div class="station-header">
-        <div class="station-icon">🚉</div>
-        <div>
-          <p class="eyebrow">Stasjon 3</p>
-          <h2>Passé composé</h2>
-          <p>Først repeterer vi passé composé med avoir. Så øver vi på être-verb som handler mye om reise, bevegelse eller endring.</p>
-        </div>
-      </div>
-
-      <div class="rule-card">
-        <strong>Avoir:</strong> j'ai visité, tu as fini, nous avons vendu. <br>
-        <strong>Être:</strong> je suis allé, elle est partie, ils sont arrivés. Med être må partisippet ofte passe: allé, allée, allés, allées.
-      </div>
-
-      <div class="activity-grid">
-        <article class="activity-card">
-          <h3>🎯 Avoir eller être?</h3>
-          <div class="activity-row"><label>Je ___ visité Paris.</label><select data-answer="ai"><option></option><option>ai</option><option>suis</option></select></div>
-          <div class="activity-row"><label>Elle ___ partie en Corse.</label><select data-answer="est"><option></option><option>a</option><option>est</option></select></div>
-          <div class="activity-row"><label>Nous ___ vendu la voiture.</label><select data-answer="avons"><option></option><option>avons</option><option>sommes</option></select></div>
-          <div class="activity-row"><label>Ils ___ arrivés à Meaux.</label><select data-answer="sont"><option></option><option>ont</option><option>sont</option></select></div>
-          <button class="check-button" data-check="passe-1" type="button">Sjekk svar</button>
-          <p class="activity-feedback"></p>
-        </article>
-
-        <article class="activity-card">
-          <h3>✍️ Velg riktig partisipp</h3>
-          <div class="activity-row"><label>Il est ___ à Paris.</label><select data-answer="allé"><option></option><option>allé</option><option>allée</option><option>allés</option></select></div>
-          <div class="activity-row"><label>Elle est ___ en Guyane.</label><select data-answer="allée"><option></option><option>allé</option><option>allée</option><option>allés</option></select></div>
-          <div class="activity-row"><label>Ils sont ___ à la gare.</label><select data-answer="arrivés"><option></option><option>arrivé</option><option>arrivée</option><option>arrivés</option></select></div>
-          <div class="activity-row"><label>Elles sont ___ de Corse.</label><select data-answer="parties"><option></option><option>parti</option><option>partie</option><option>parties</option></select></div>
-          <button class="check-button" data-check="passe-2" type="button">Sjekk svar</button>
-          <p class="activity-feedback"></p>
-        </article>
-
-        <article class="activity-card">
-          <h3>🚗 Reiseverb med être</h3>
-          <p>Skriv hjelpeverbet som mangler.</p>
-          <div class="activity-row"><label>Je ___ né en France.</label><input data-answer="suis" autocomplete="off"></div>
-          <div class="activity-row"><label>Tu ___ resté à l'hôtel.</label><input data-answer="es" autocomplete="off"></div>
-          <div class="activity-row"><label>Nous ___ montés dans le train.</label><input data-answer="sommes" autocomplete="off"></div>
-          <div class="activity-row"><label>Vous ___ sortis de la gare.</label><input data-answer="êtes" autocomplete="off"></div>
-          <button class="check-button" data-check="passe-3" type="button">Sjekk svar</button>
-          <p class="activity-feedback"></p>
-        </article>
-
-        <article class="activity-card">
-          <h3>🌍 Oversett kort</h3>
-          <div class="activity-row"><label>Jeg dro til Paris. = Je ___ allé à Paris.</label><input data-answer="suis" autocomplete="off"></div>
-          <div class="activity-row"><label>Hun kom til Meaux. = Elle est ___ à Meaux.</label><input data-answer="arrivée" autocomplete="off"></div>
-          <div class="activity-row"><label>Vi besøkte Korsika. = Nous avons ___ la Corse.</label><input data-answer="visité" autocomplete="off"></div>
-          <button class="check-button" data-check="passe-4" type="button">Sjekk svar</button>
-          <p class="activity-feedback"></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="summary-game" id="oppsummering" aria-labelledby="summaryTitle">
-      <div class="summary-intro">
-        <div>
-          <p class="eyebrow">Oppsummeringsspill</p>
-          <h2 id="summaryTitle">Reiseruta: klarer du 20 stopp?</h2>
-          <p>Bilen flytter seg fremover når du svarer riktig. Spillet blander verb, eiendomsord og passé composé.</p>
-        </div>
-        <button class="summary-reset" id="summaryReset" type="button">🔁 Start spillet på nytt</button>
-      </div>
-
-      <div class="road-wrap" aria-hidden="true">
-        <div class="road-line"></div>
-        <div class="road-car" id="roadCar">🚗</div>
-        <div class="road-finish">🏁</div>
-      </div>
-
-      <div class="summary-status">
-        <span id="summaryCounter">Stopp 1 av 20</span>
-        <span id="summaryScore">0 riktige</span>
-      </div>
-
-      <div class="summary-question-card">
-        <p id="summaryQuestion">Trykk på et svar for å starte reisen.</p>
-        <div class="summary-answers" id="summaryAnswers"></div>
-        <p class="summary-feedback" id="summaryFeedback"></p>
-      </div>
     </section>
   </main>
 
-  <script src="app.js"></script>
-  <script src="grammar.js"></script>
-  <script src="summary.js"></script>
-  <script src="summary-car.js"></script>
-  <script src="sound.js"></script>
+  <script src="blog.js"></script>
 </body>
 </html>
