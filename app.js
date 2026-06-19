@@ -222,112 +222,143 @@ const questionBank = [
   {
     id: "utfordring-1",
     level: "utfordring",
-    title: "Finn feilen",
-    rule: "Subjektet og verbet må passe sammen.",
-    text: "Hvilken setning er riktig?",
-    answers: ["Ils parle français.", "Ils parlons français.", "Ils parlent français.", "Ils parlez français."],
-    correct: "Ils parlent français.",
-    feedback: "Riktig. Ils + parler = parlent.",
-    hint: "Se etter ils-formen."
+    type: "write",
+    title: "Skriv selv: -ER med je",
+    rule: "Bruk subjektet je og ett av verbene parler, habiter, visiter, aimer eller regarder i presens.",
+    text: "Lag en egen fransk setning med je og et regelrett -ER-verb i presens.",
+    minimumWords: 4,
+    subjects: ["je", "j'"],
+    requirements: [{ label: "en riktig je-form av et -ER-verb", forms: ["parle", "habite", "visite", "aime", "regarde", "écoute"] }],
+    feedback: "Fin setning. Du bruker je og en regelrett -ER-form i presens.",
+    hint: "Ingen hint på utfordring. Prøv å skrive en hel setning selv."
   },
   {
     id: "utfordring-2",
     level: "utfordring",
-    title: "Blandede verb",
-    rule: "Du må kjenne igjen om verbet er -ER, -IR, -RE eller uregelrett.",
-    text: "Velg riktig form: Ma famille et moi ___ en Guyane.",
-    answers: ["sommes", "êtes", "sont", "est"],
-    correct: "sommes",
-    feedback: "Ja. Ma famille et moi betyr vi, altså nous sommes.",
-    hint: "Ma famille et moi = nous."
+    type: "write",
+    title: "Skriv selv: -ER med nous",
+    rule: "Bruk nous og ett -ER-verb i presens. Formen slutter ofte på -ons.",
+    text: "Skriv en setning om en reise eller et sted med nous og et -ER-verb.",
+    minimumWords: 5,
+    subjects: ["nous"],
+    requirements: [{ label: "en riktig nous-form av et -ER-verb", forms: ["visitons", "habitons", "regardons", "aimons", "parlons", "écoutons"] }],
+    feedback: "Bra. Du bruker nous og en -ER-form som passer.",
+    hint: "Ingen hint på utfordring."
   },
   {
     id: "utfordring-3",
     level: "utfordring",
-    title: "Oversett til fransk",
-    rule: "Start med pronomenet, og velg riktig verbform.",
-    text: "Velg riktig oversettelse av: Vi venter på toget.",
-    answers: ["Nous attend le train.", "Nous attends le train.", "Nous attendons le train.", "Nous attendent le train."],
-    correct: "Nous attendons le train.",
-    feedback: "Riktig. Nous attendons le train.",
-    hint: "Nous-formen av attendre er attendons."
+    type: "write",
+    title: "Skriv selv: -IR med je eller tu",
+    rule: "Bruk je eller tu og et regelrett -IR-verb som finir, choisir eller réussir.",
+    text: "Lag en egen setning med je eller tu og et regelrett -IR-verb i presens.",
+    minimumWords: 4,
+    subjects: ["je", "j'", "tu"],
+    requirements: [{ label: "en riktig je/tu-form av et -IR-verb", forms: ["finis", "choisis", "réussis", "remplis"] }],
+    feedback: "Dette fungerer. Je/tu-formen av mange -IR-verb slutter på -is.",
+    hint: "Ingen hint på utfordring."
   },
   {
     id: "utfordring-4",
     level: "utfordring",
-    title: "Oversett til fransk",
-    rule: "Husk at avoir er uregelrett.",
-    text: "Velg riktig oversettelse av: De har en liten bil.",
-    answers: ["Ils ont une petite voiture.", "Ils avons une petite voiture.", "Ils a une petite voiture.", "Ils sont une petite voiture."],
-    correct: "Ils ont une petite voiture.",
-    feedback: "Riktig. Ils ont betyr de har.",
-    hint: "De har = ils ont."
+    type: "write",
+    title: "Skriv selv: -IR med nous eller vous",
+    rule: "Bruk nous eller vous og et -IR-verb i presens. Formene er ofte -issons og -issez.",
+    text: "Skriv en setning med nous eller vous og et regelrett -IR-verb.",
+    minimumWords: 5,
+    subjects: ["nous", "vous"],
+    requirements: [{ label: "en riktig nous/vous-form av et -IR-verb", forms: ["finissons", "choisissons", "réussissons", "finissez", "choisissez", "réussissez"] }],
+    feedback: "Godt jobbet. Du har brukt en tydelig -IR-form i presens.",
+    hint: "Ingen hint på utfordring."
   },
   {
     id: "utfordring-5",
     level: "utfordring",
-    title: "Velg riktig setning",
-    rule: "Noen former høres like ut, men skrives forskjellig.",
-    text: "Hvilken setning er grammatisk riktig?",
-    answers: ["Tu finit le texte.", "Tu finis le texte.", "Tu finissons le texte.", "Tu finissez le texte."],
-    correct: "Tu finis le texte.",
-    feedback: "Riktig. Tu finis er riktig form.",
-    hint: "Tu-formen av finir er finis."
+    type: "write",
+    title: "Skriv selv: -RE med il eller elle",
+    rule: "Bruk il eller elle og et regelrett -RE-verb som attendre, vendre, répondre eller perdre.",
+    text: "Lag en egen setning med il eller elle og et regelrett -RE-verb i presens.",
+    minimumWords: 4,
+    subjects: ["il", "elle"],
+    requirements: [{ label: "en riktig il/elle-form av et -RE-verb", forms: ["attend", "vend", "répond", "perd", "descend"] }],
+    feedback: "Ja. Med il/elle har mange -RE-verb kort form, for eksempel il attend.",
+    hint: "Ingen hint på utfordring."
   },
   {
     id: "utfordring-6",
     level: "utfordring",
-    title: "Velg riktig setning",
-    rule: "Adressen eller stedet endrer ikke verbformen. Subjektet gjør det.",
-    text: "Hvilken setning er riktig?",
-    answers: ["Elle habitons à Meaux.", "Elle habitez à Meaux.", "Elle habitent à Meaux.", "Elle habite à Meaux."],
-    correct: "Elle habite à Meaux.",
-    feedback: "Ja. Elle habite er riktig.",
-    hint: "Elle-formen av -ER-verb slutter ofte på -e."
+    type: "write",
+    title: "Skriv selv: -RE med ils eller elles",
+    rule: "Bruk ils eller elles og et regelrett -RE-verb i presens.",
+    text: "Skriv en setning med ils eller elles og et -RE-verb.",
+    minimumWords: 5,
+    subjects: ["ils", "elles"],
+    requirements: [{ label: "en riktig ils/elles-form av et -RE-verb", forms: ["attendent", "vendent", "répondent", "perdent", "descendent"] }],
+    feedback: "Flott. Du har brukt en flertallsform av et -RE-verb.",
+    hint: "Ingen hint på utfordring."
   },
   {
     id: "utfordring-7",
     level: "utfordring",
-    title: "Kontekst",
-    rule: "Et navn kan ofte byttes ut med il eller elle.",
-    text: "Velg riktig form: Lucas ___ une carte de France.",
-    answers: ["ai", "as", "a", "ont"],
-    correct: "a",
-    feedback: "Riktig. Lucas = il, og il a.",
-    hint: "Lucas kan byttes ut med il."
+    type: "write",
+    title: "Tre setninger: ER, IR og RE",
+    rule: "Skriv tre setninger. Du må bruke minst ett -ER-verb, ett -IR-verb og ett -RE-verb i presens.",
+    text: "Skriv tre korte setninger på fransk: én med -ER, én med -IR og én med -RE.",
+    minimumWords: 12,
+    minimumSentences: 3,
+    requirements: [
+      { label: "minst ett -ER-verb i presens", forms: ["parle", "parles", "parlons", "parlez", "parlent", "habite", "habites", "habitons", "habitez", "habitent", "visite", "visitons", "visitez", "visitent"] },
+      { label: "minst ett -IR-verb i presens", forms: ["finis", "finit", "finissons", "finissez", "finissent", "choisis", "choisit", "choisissons", "choisissez", "choisissent"] },
+      { label: "minst ett -RE-verb i presens", forms: ["attends", "attend", "attendons", "attendez", "attendent", "vends", "vend", "vendons", "vendez", "vendent", "réponds", "répond", "répondons", "répondez", "répondent"] }
+    ],
+    feedback: "Très bien. Her viser du at du kan bruke alle tre verbgruppene.",
+    hint: "Ingen hint på utfordring."
   },
   {
     id: "utfordring-8",
     level: "utfordring",
-    title: "Kontekst",
-    rule: "To eller flere personer blir flertall.",
-    text: "Velg riktig form: Lina et Sara ___ contentes.",
-    answers: ["suis", "est", "sommes", "sont"],
-    correct: "sont",
-    feedback: "Riktig. Lina et Sara = elles, og elles sont.",
-    hint: "To jenter kan byttes ut med elles."
+    type: "write",
+    title: "Miniavsnitt: en region",
+    rule: "Skriv et lite avsnitt om et sted. Bruk minst to presensverb.",
+    text: "Skriv 3-4 setninger om Paris, Meaux, Corse, Guyane eller en annen fransk region. Bruk minst to presensverb.",
+    minimumWords: 18,
+    minimumSentences: 3,
+    requirements: [
+      { label: "minst ett -ER-verb i presens", forms: ["parle", "parles", "parlons", "parlez", "parlent", "habite", "habites", "habitons", "habitez", "habitent", "visite", "visitons", "visitez", "visitent", "aime", "aimes", "aimons", "aimez", "aiment"] },
+      { label: "minst ett annet presensverb", forms: ["suis", "es", "est", "sommes", "êtes", "sont", "ai", "as", "a", "avons", "avez", "ont", "finis", "finit", "choisis", "choisit", "attends", "attend", "répond", "vends"] }
+    ],
+    feedback: "Fint avsnitt. Dette er mer som en liten fri skriveoppgave.",
+    hint: "Ingen hint på utfordring."
   },
   {
     id: "utfordring-9",
     level: "utfordring",
-    title: "Blandede former",
-    rule: "Ikke se bare på slutten av verbet. Se på hele subjektet.",
-    text: "Velg riktig form: Mes amis ___ la région.",
-    answers: ["aime", "aimes", "aimons", "aiment"],
-    correct: "aiment",
-    feedback: "Riktig. Mes amis = ils, og ils aiment.",
-    hint: "Mes amis er flertall."
+    type: "write",
+    title: "Muntlig forberedelse",
+    rule: "Skriv noe du kunne sagt høyt. Bruk presens og minst to ulike verb.",
+    text: "Skriv 3 setninger du kunne lest inn muntlig om deg selv eller en reise.",
+    minimumWords: 16,
+    minimumSentences: 3,
+    requirements: [{ label: "minst to presensverb", forms: ["suis", "es", "est", "sommes", "êtes", "sont", "ai", "as", "a", "avons", "avez", "ont", "parle", "habite", "aime", "visite", "regarde", "finis", "choisis", "attends", "réponds", "vends"] }],
+    feedback: "Dette kan brukes som muntlig trening. Les det gjerne høyt etterpå.",
+    hint: "Ingen hint på utfordring."
   },
   {
     id: "utfordring-10",
     level: "utfordring",
-    title: "Blandede former",
-    rule: "I korte tekster må du bruke sammenhengen for å finne subjektet.",
-    text: "Velg riktig form: Dans ma lettre, je ___ de Paris.",
-    answers: ["parle", "parles", "parlons", "parlent"],
-    correct: "parle",
-    feedback: "Riktig. Je parle de Paris.",
-    hint: "Subjektet er je."
+    type: "write",
+    title: "Fri utfordring",
+    rule: "Skriv uten svaralternativer. Bruk ER, IR og RE i presens hvis du klarer.",
+    text: "Skriv et lite avsnitt på fransk. Tema: en by, en region, skolen din eller fritiden din. Bruk minst ett -ER-verb, ett -IR-verb og ett -RE-verb.",
+    minimumWords: 24,
+    minimumSentences: 4,
+    requirements: [
+      { label: "minst ett -ER-verb", forms: ["parle", "parles", "parlons", "parlez", "parlent", "habite", "habites", "habitons", "habitez", "habitent", "visite", "visitons", "visitez", "visitent", "aime", "aimons", "aiment"] },
+      { label: "minst ett -IR-verb", forms: ["finis", "finit", "finissons", "finissez", "finissent", "choisis", "choisit", "choisissons", "choisissez", "choisissent"] },
+      { label: "minst ett -RE-verb", forms: ["attends", "attend", "attendons", "attendez", "attendent", "vends", "vend", "vendons", "vendez", "vendent", "réponds", "répond", "répondons", "répondez", "répondent"] }
+    ],
+    feedback: "Sterkt jobbet. Dette er en åpen skriveoppgave med mer faglig motstand.",
+    hint: "Ingen hint på utfordring."
   }
 ];
 
@@ -375,7 +406,9 @@ const newSentenceButton = document.querySelector("#newSentenceButton");
 const playback = document.querySelector("#playback");
 const recordStatus = document.querySelector("#recordStatus");
 const levelButtons = document.querySelectorAll(".level-button");
+const helpRow = document.querySelector(".help-row");
 
+injectWritingStyles();
 renderProgress();
 renderQuestion();
 
@@ -446,9 +479,7 @@ recordButton.addEventListener("click", async () => {
     mediaRecorder = new MediaRecorder(microphoneStream, options);
 
     mediaRecorder.addEventListener("dataavailable", (event) => {
-      if (event.data.size > 0) {
-        recordedChunks.push(event.data);
-      }
+      if (event.data.size > 0) recordedChunks.push(event.data);
     });
 
     mediaRecorder.addEventListener("stop", () => {
@@ -470,18 +501,13 @@ recordButton.addEventListener("click", async () => {
 });
 
 stopButton.addEventListener("click", () => {
-  if (mediaRecorder && mediaRecorder.state !== "inactive") {
-    mediaRecorder.stop();
-  }
+  if (mediaRecorder && mediaRecorder.state !== "inactive") mediaRecorder.stop();
   recordButton.disabled = false;
   stopButton.disabled = true;
 });
 
 function getQuestions() {
-  if (currentLevel === "blandet") {
-    return questionBank;
-  }
-
+  if (currentLevel === "blandet") return questionBank;
   return questionBank.filter((question) => question.level === currentLevel);
 }
 
@@ -489,11 +515,10 @@ function renderQuestion() {
   const questions = getQuestions();
   const completed = state.verb.levels[currentLevel];
 
-  if (completed >= questions.length) {
-    currentIndex = questions.length - 1;
-  }
+  if (completed >= questions.length) currentIndex = questions.length - 1;
 
   const question = questions[currentIndex];
+  const isWritingTask = question.type === "write";
   questionTitle.textContent = `${levelNames[currentLevel]}: ${question.title}`;
   questionCount.textContent = `Oppgave ${Math.min(currentIndex + 1, questions.length)} av ${questions.length}`;
   questionText.textContent = question.text;
@@ -502,6 +527,13 @@ function renderQuestion() {
   supportText.textContent = "";
   supportText.className = "support-text";
   answerGrid.innerHTML = "";
+  answerGrid.classList.toggle("writing-grid", isWritingTask);
+  if (helpRow) helpRow.style.display = isWritingTask ? "none" : "flex";
+
+  if (isWritingTask) {
+    renderWritingTask(question);
+    return;
+  }
 
   question.answers.forEach((answer) => {
     const button = document.createElement("button");
@@ -512,36 +544,113 @@ function renderQuestion() {
   });
 }
 
+function renderWritingTask(question) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "writing-task";
+  wrapper.innerHTML = `
+    <p class="challenge-note"><strong>Utfordring uten svaralternativer:</strong> Skriv selv. Siden sjekker noen tydelige kjennetegn, men læreren kan fortsatt vurdere språk og innhold.</p>
+    <textarea id="challengeAnswer" rows="7" spellcheck="false" placeholder="Skriv setningen eller avsnittet ditt her..."></textarea>
+    <div class="writing-checklist" id="writingChecklist"></div>
+    <button class="writing-check-button" id="writingCheckButton" type="button">Sjekk setning</button>
+  `;
+  answerGrid.appendChild(wrapper);
+
+  const textarea = wrapper.querySelector("#challengeAnswer");
+  const button = wrapper.querySelector("#writingCheckButton");
+  button.addEventListener("click", () => checkWritingAnswer(question, textarea.value));
+  textarea.addEventListener("input", () => {
+    feedback.textContent = "";
+    feedback.className = "feedback";
+    wrapper.querySelector("#writingChecklist").innerHTML = "";
+  });
+}
+
 function checkAnswer(answer) {
   const questions = getQuestions();
   const question = questions[currentIndex];
 
   if (answer === question.correct) {
-    feedback.textContent = `✅ ${question.feedback}`;
-    feedback.className = "feedback correct";
-
-    if (state.verb.levels[currentLevel] === currentIndex) {
-      state.verb.levels[currentLevel] += 1;
-      if (!state.verb.answered.includes(question.id)) {
-        state.verb.answered.push(question.id);
-      }
-      saveState();
-      renderProgress();
-    }
-
-    window.setTimeout(() => {
-      if (currentIndex < questions.length - 1) {
-        currentIndex += 1;
-        renderQuestion();
-      } else {
-        feedback.textContent = "🏆 Nivået er fullført! Du kan starte på nytt hvis du vil terpe mer.";
-        feedback.className = "feedback correct";
-      }
-    }, 850);
+    markQuestionCorrect(question, `✅ ${question.feedback}`);
   } else {
     feedback.textContent = "🔁 Ikke helt. Prøv igjen, eller trykk på Vis regel / Vis hint hvis du vil ha hjelp.";
     feedback.className = "feedback wrong";
   }
+}
+
+function checkWritingAnswer(question, value) {
+  const checks = validateWritingAnswer(question, value);
+  const passed = checks.filter((check) => check.ok).length;
+  const allCorrect = checks.length > 0 && passed === checks.length;
+  const checklist = document.querySelector("#writingChecklist");
+
+  checklist.innerHTML = checks
+    .map((check) => `<p class="${check.ok ? "ok" : "missing"}">${check.ok ? "✓" : "•"} ${check.label}</p>`)
+    .join("");
+
+  if (allCorrect) {
+    markQuestionCorrect(question, `✅ ${question.feedback}`);
+  } else {
+    feedback.textContent = `🔁 ${passed} av ${checks.length} krav er på plass. Se på punktene over og prøv igjen.`;
+    feedback.className = "feedback wrong";
+  }
+}
+
+function validateWritingAnswer(question, value) {
+  const normalized = normalizeAnswer(value);
+  const words = normalized.split(" ").filter(Boolean);
+  const sentenceCount = countSentences(value);
+  const checks = [];
+
+  checks.push({
+    label: `minst ${question.minimumWords || 4} ord`,
+    ok: words.length >= (question.minimumWords || 4)
+  });
+
+  if (question.minimumSentences) {
+    checks.push({
+      label: `minst ${question.minimumSentences} setninger`,
+      ok: sentenceCount >= question.minimumSentences
+    });
+  }
+
+  if (question.subjects?.length) {
+    checks.push({
+      label: `riktig subjekt: ${question.subjects.join(" / ")}`,
+      ok: question.subjects.some((subject) => containsWord(normalized, normalizeAnswer(subject)))
+    });
+  }
+
+  question.requirements?.forEach((requirement) => {
+    checks.push({
+      label: requirement.label,
+      ok: requirement.forms.some((form) => containsWord(normalized, normalizeAnswer(form)))
+    });
+  });
+
+  return checks;
+}
+
+function markQuestionCorrect(question, message) {
+  const questions = getQuestions();
+  feedback.textContent = message;
+  feedback.className = "feedback correct";
+
+  if (state.verb.levels[currentLevel] === currentIndex) {
+    state.verb.levels[currentLevel] += 1;
+    if (!state.verb.answered.includes(question.id)) state.verb.answered.push(question.id);
+    saveState();
+    renderProgress();
+  }
+
+  window.setTimeout(() => {
+    if (currentIndex < questions.length - 1) {
+      currentIndex += 1;
+      renderQuestion();
+    } else {
+      feedback.textContent = "🏆 Nivået er fullført! Du kan starte på nytt hvis du vil terpe mer.";
+      feedback.className = "feedback correct";
+    }
+  }, question.type === "write" ? 1400 : 850);
 }
 
 function showSupport(text) {
@@ -551,7 +660,7 @@ function showSupport(text) {
 
 function renderProgress() {
   const questions = getQuestions();
-  const completed = state.verb.levels[currentLevel];
+  const completed = Math.min(state.verb.levels[currentLevel], questions.length);
   const percent = Math.round((completed / questions.length) * 100);
   verbProgress.style.width = `${percent}%`;
   verbProgressText.textContent = `${levelNames[currentLevel]}: ${completed} av ${questions.length} oppgaver`;
@@ -573,9 +682,7 @@ function loadState() {
 
   try {
     const stored = JSON.parse(localStorage.getItem(storageKey));
-    if (stored?.verb?.levels && Array.isArray(stored.verb.answered)) {
-      return stored;
-    }
+    if (stored?.verb?.levels && Array.isArray(stored.verb.answered)) return stored;
     return fallback;
   } catch (error) {
     return fallback;
@@ -584,4 +691,50 @@ function loadState() {
 
 function saveState() {
   localStorage.setItem(storageKey, JSON.stringify(state));
+}
+
+function containsWord(text, word) {
+  if (!word) return false;
+  if (word.endsWith("'")) return text.includes(word);
+  return new RegExp(`(^|\\s)${escapeRegExp(word)}($|\\s|[,.!?;:])`).test(text);
+}
+
+function countSentences(value) {
+  const punctuationCount = (value.match(/[.!?]+/g) || []).length;
+  const lineCount = value.split(/\n+/).map((line) => line.trim()).filter(Boolean).length;
+  return Math.max(punctuationCount, lineCount);
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function normalizeAnswer(value) {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[’]/g, "'")
+    .replace(/[\n\r\t]+/g, " ")
+    .replace(/\s+/g, " ");
+}
+
+function injectWritingStyles() {
+  if (document.querySelector("#writingTaskStyles")) return;
+  const styles = document.createElement("style");
+  styles.id = "writingTaskStyles";
+  styles.textContent = `
+    .answer-grid.writing-grid { display: block; }
+    .writing-task { display: grid; gap: 12px; }
+    .challenge-note { margin: 0; padding: 12px; border-radius: 8px; background: #eef2ff; color: #3730a3; line-height: 1.45; }
+    .writing-task textarea { width: 100%; min-height: 160px; resize: vertical; padding: 14px; border: 1px solid var(--line); border-radius: 8px; font: inherit; line-height: 1.5; color: var(--ink); background: white; }
+    .writing-task textarea:focus { outline: 2px solid #93c5fd; border-color: #2563eb; }
+    .writing-check-button { min-height: 46px; border: 0; border-radius: 8px; color: white; background: #0f766e; font-weight: 900; cursor: pointer; }
+    .writing-checklist { display: grid; gap: 6px; }
+    .writing-checklist p { margin: 0; padding: 8px 10px; border-radius: 8px; line-height: 1.35; }
+    .writing-checklist .ok { color: #166534; background: #dcfce7; }
+    .writing-checklist .missing { color: #991b1b; background: #fee2e2; }
+  `;
+  document.head.appendChild(styles);
 }
