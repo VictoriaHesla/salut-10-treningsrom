@@ -10,6 +10,7 @@ if (challengeLevelButton) {
 }
 
 clarifyScoreDisplay();
+enhanceEtreVerbFigures();
 
 function clarifyScoreDisplay() {
   const maxPoints = 300;
@@ -68,4 +69,65 @@ function clarifyScoreDisplay() {
 
   const observer = new MutationObserver(syncScore);
   observer.observe(totalScore, { childList: true, characterData: true, subtree: true });
+}
+
+function enhanceEtreVerbFigures() {
+  const board = document.querySelector(".etre-figure-board");
+  if (!board) return;
+
+  const participles = {
+    "Naître": "né",
+    "Partir": "parti",
+    "Aller": "allé",
+    "Descendre": "descendu",
+    "Rester": "resté",
+    "Tomber": "tombé",
+    "Monter": "monté",
+    "Entrer": "entré",
+    "Sortir": "sorti",
+    "Mourir": "mort"
+  };
+
+  board.querySelectorAll(".etre-card strong").forEach((heading) => {
+    const verb = heading.textContent.trim().split(" - ")[0];
+    const participle = participles[verb];
+    if (participle) {
+      heading.textContent = `${verb} - ${participle}`;
+    }
+  });
+
+  if (document.querySelector("#largeEtreFigureStyles")) return;
+  const styles = document.createElement("style");
+  styles.id = "largeEtreFigureStyles";
+  styles.textContent = `
+    .etre-figure-board { padding: 30px !important; }
+    .etre-figure-board h3 { font-size: 1.65rem !important; }
+    .etre-figure-grid { grid-template-columns: repeat(2, minmax(320px, 1fr)) !important; gap: 24px !important; }
+    .etre-card { min-height: 520px !important; grid-template-rows: 380px auto auto !important; gap: 12px !important; padding: 20px !important; }
+    .etre-scene { min-height: 380px !important; }
+    .etre-person { font-size: 8.8rem !important; }
+    .etre-object { font-size: 6.6rem !important; }
+    .etre-arrow { font-size: 6.4rem !important; }
+    .etre-stairs { font-size: 7.6rem !important; }
+    .etre-door { font-size: 9.6rem !important; }
+    .etre-ground { bottom: 42px !important; height: 11px !important; }
+    .etre-card strong { color: #1e3a8a !important; font-size: 1.6rem !important; line-height: 1.15 !important; }
+    .etre-card > span:last-child { font-size: 1.08rem !important; }
+    @media (max-width: 980px) {
+      .etre-figure-grid { grid-template-columns: 1fr !important; }
+      .etre-card { min-height: 500px !important; grid-template-rows: 360px auto auto !important; }
+      .etre-scene { min-height: 360px !important; }
+    }
+    @media (max-width: 560px) {
+      .etre-figure-board { padding: 16px !important; }
+      .etre-card { min-height: 390px !important; grid-template-rows: 270px auto auto !important; padding: 14px !important; }
+      .etre-scene { min-height: 270px !important; }
+      .etre-person { font-size: 6.2rem !important; }
+      .etre-object, .etre-arrow { font-size: 4.7rem !important; }
+      .etre-stairs { font-size: 5.2rem !important; }
+      .etre-door { font-size: 6.8rem !important; }
+      .etre-card strong { font-size: 1.28rem !important; }
+    }
+  `;
+  document.head.appendChild(styles);
 }
