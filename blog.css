@@ -440,6 +440,177 @@
   width: 100%;
 }
 
+/* Richer scrapbook collage illustrations */
+.scrap-hero-art::before,
+.scrap-hero-art::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 12px 24px rgba(159, 23, 77, 0.09);
+}
+
+.scrap-hero-art::before {
+  width: 190px;
+  height: 136px;
+  left: 116px;
+  top: 120px;
+  transform: rotate(-4deg);
+}
+
+.scrap-hero-art::after {
+  width: 148px;
+  height: 112px;
+  right: 118px;
+  top: 74px;
+  transform: rotate(8deg);
+}
+
+.paper-note,
+.sticker {
+  z-index: 2;
+}
+
+.blog-illustration {
+  min-height: 285px;
+  display: block;
+  padding: 18px;
+  box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.blog-illustration::before {
+  content: "";
+  width: 68%;
+  height: 68%;
+  left: 15%;
+  top: 16%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 18px 34px rgba(159, 23, 77, 0.12);
+  transform: rotate(-3deg);
+  opacity: 1;
+}
+
+.blog-illustration::after {
+  right: auto;
+  bottom: auto;
+  left: 26px;
+  top: 24px;
+  width: auto;
+  height: auto;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--blog-berry);
+  border: 1px solid rgba(217, 70, 125, 0.18);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  opacity: 1;
+  transform: rotate(-4deg);
+}
+
+.blog-illustration span {
+  position: absolute;
+  width: 86px;
+  height: 86px;
+  margin: 0;
+  border: 1px solid rgba(217, 70, 125, 0.16);
+  background: rgba(255, 255, 255, 0.88);
+  font-size: 3rem;
+  transform: rotate(var(--tilt, 0deg));
+}
+
+.blog-illustration span:nth-child(1) {
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  font-size: 4.5rem;
+  translate: -50% -50%;
+  --tilt: -3deg;
+}
+
+.blog-illustration span:nth-child(2) {
+  right: 18px;
+  top: 26px;
+  --tilt: 8deg;
+}
+
+.blog-illustration span:nth-child(3) {
+  left: 24px;
+  bottom: 24px;
+  --tilt: -8deg;
+}
+
+.blog-illustration span:nth-child(4) {
+  right: 28px;
+  bottom: 24px;
+  --tilt: 6deg;
+}
+
+.desk::after { content: "profil"; }
+.family::after { content: "famille"; }
+.town::after { content: "chez moi"; }
+.school::after { content: "collège"; }
+.hobbies::after { content: "loisirs"; }
+.food::after { content: "miam"; }
+.holiday::after { content: "vacances"; }
+
+.desk span:nth-child(1),
+.school span:nth-child(3),
+.holiday span:nth-child(1) {
+  background: #fffdf8;
+}
+
+.family span:nth-child(1),
+.town span:nth-child(3),
+.hobbies span:nth-child(2) {
+  background: var(--blog-mint);
+}
+
+.town span:nth-child(1),
+.hobbies span:nth-child(1),
+.holiday span:nth-child(2) {
+  background: var(--blog-blue);
+}
+
+.food span:nth-child(1),
+.food span:nth-child(2),
+.school span:nth-child(2) {
+  background: var(--blog-yellow);
+}
+
+.family span:nth-child(3),
+.hobbies span:nth-child(4),
+.food span:nth-child(3),
+.holiday span:nth-child(3) {
+  background: var(--blog-soft);
+}
+
+.desk span:nth-child(2),
+.family span:nth-child(2),
+.town span:nth-child(2),
+.school span:nth-child(1),
+.hobbies span:nth-child(3),
+.holiday span:nth-child(4) {
+  width: 78px;
+  height: 78px;
+  font-size: 2.6rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .blog-illustration span {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .blog-card:hover .blog-illustration span:nth-child(1) {
+    transform: rotate(var(--tilt, 0deg)) translateY(-4px);
+    box-shadow: 0 18px 28px rgba(159, 23, 77, 0.18);
+  }
+}
+
 @media (max-width: 960px) {
   .blog-hero,
   .blog-layout,
@@ -470,7 +641,22 @@
   }
 
   .blog-illustration {
-    min-height: 170px;
+    min-height: 225px;
+  }
+
+  .blog-illustration span:nth-child(1) {
+    width: 96px;
+    height: 96px;
+    font-size: 3.6rem;
+  }
+
+  .blog-illustration span,
+  .blog-illustration span:nth-child(2),
+  .blog-illustration span:nth-child(3),
+  .blog-illustration span:nth-child(4) {
+    width: 66px;
+    height: 66px;
+    font-size: 2.2rem;
   }
 }
 
