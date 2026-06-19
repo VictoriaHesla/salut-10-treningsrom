@@ -3,6 +3,7 @@ let audioContext;
 let soundEnabled = localStorage.getItem(soundKey) === "true";
 
 applyTextCorrections();
+insertModule2NavigationHelp();
 insertDeresPractice();
 enhancePasseTranslationTask();
 insertAvoirEtreAgreementPractice();
@@ -61,6 +62,72 @@ function applyTextCorrections() {
     ruleCard.insertAdjacentHTML(
       "beforeend",
       `<p class="possessive-note"><strong>Obs:</strong> På norsk kan "deres" bety både <strong>til dere</strong> og <strong>til dem</strong>. På fransk blir det <strong>votre/vos</strong> for dere, men <strong>leur/leurs</strong> for dem.</p>`
+    );
+  }
+}
+
+function insertModule2NavigationHelp() {
+  const nav = document.querySelector(".station-nav");
+  if (!nav || document.querySelector(".station-guide")) return;
+
+  const subtitles = {
+    "verbverksted": "start eller terp",
+    "eiendomsord": "tabell og oppgaver",
+    "passe-compose": "être og avoir",
+    "oppsummering": "åpen hele tiden"
+  };
+
+  Object.entries(subtitles).forEach(([id, text]) => {
+    const subtitle = nav.querySelector(`a[href="#${id}"] .station-link-subtitle`);
+    if (subtitle) subtitle.textContent = text;
+  });
+
+  if (!document.querySelector("#module2GuideStyles")) {
+    const styles = document.createElement("style");
+    styles.id = "module2GuideStyles";
+    styles.textContent = `
+      .station-guide { margin: -2px 0 18px; padding: 14px; border: 1px solid #bfdbfe; border-radius: 8px; background: linear-gradient(135deg, #eff6ff, #fff7ed); display: grid; gap: 12px; box-shadow: 0 12px 28px rgba(70, 89, 126, 0.08); }
+      .station-guide p { margin: 0; color: #334155; line-height: 1.45; }
+      .station-guide strong { color: #1d4ed8; }
+      .station-guide-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+      .station-guide-button { min-height: 42px; padding: 10px 12px; border: 1px solid #bfdbfe; border-radius: 8px; background: white; color: #1e3a8a; font-weight: 900; cursor: pointer; box-shadow: 0 8px 18px rgba(70, 89, 126, 0.08); }
+      .station-guide-button:hover, .station-guide-button:focus-visible { border-color: #2563eb; outline: none; transform: translateY(-1px); }
+      .station-nudge { margin: 12px 0 0; padding: 12px; border-radius: 8px; background: #f0fdfa; border: 1px solid #99f6e4; color: #134e4a; line-height: 1.45; }
+      @media (max-width: 640px) { .station-guide-actions { display: grid; grid-template-columns: 1fr; } .station-guide-button { width: 100%; text-align: left; } }
+    `;
+    document.head.appendChild(styles);
+  }
+
+  nav.insertAdjacentHTML(
+    "afterend",
+    `<div class="station-guide" aria-label="Hjelp til modul 2">
+      <p><strong>Modul 2 er delt i fire stasjoner.</strong> Elevene kan jobbe i rekkefølge, men de kan også hoppe videre med knappene under. Reiseruta er åpen, så den trenger ikke låses opp.</p>
+      <div class="station-guide-actions">
+        <button class="station-guide-button" type="button" data-station-target="verbverksted">1. Verb</button>
+        <button class="station-guide-button" type="button" data-station-target="eiendomsord">2. Eiendomsord</button>
+        <button class="station-guide-button" type="button" data-station-target="passe-compose">3. Passé composé</button>
+        <button class="station-guide-button" type="button" data-station-target="oppsummering">4. Reiseruta</button>
+      </div>
+    </div>`
+  );
+
+  document.querySelectorAll(".station-guide-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = button.dataset.stationTarget;
+      const link = document.querySelector(`.station-nav a[href="#${target}"]`);
+      if (link) {
+        link.click();
+      } else {
+        window.location.hash = target;
+      }
+    });
+  });
+
+  const lessonHeader = document.querySelector("#verbverksted .lesson-header");
+  if (lessonHeader && !document.querySelector(".station-nudge")) {
+    lessonHeader.insertAdjacentHTML(
+      "afterend",
+      `<p class="station-nudge"><strong>Tips:</strong> Verbverkstedet har mange terpeoppgaver. Du kan gå videre til eiendomsord når du vil, og komme tilbake hit senere.</p>`
     );
   }
 }
