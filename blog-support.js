@@ -161,7 +161,10 @@ function initLockedGlossaries() {
 
   document.querySelectorAll(".glossary-open-button").forEach((button) => {
     button.addEventListener("click", () => {
-      const panel = button.closest(".glossary-lock")?.querySelector(".glossary-password-panel");
+      const wrapper = button.closest(".glossary-lock");
+      const content = wrapper?.querySelector(".glossary-content");
+      const panel = wrapper?.querySelector(".glossary-password-panel");
+      if (content && !content.hidden) return;
       if (panel) panel.hidden = !panel.hidden;
     });
   });
@@ -183,8 +186,8 @@ function initLockedGlossaries() {
 function renderGlossaryLock(sectionId, glossary, isUnlocked) {
   return `
     <div class="glossary-lock" data-glossary="${sectionId}">
-      <button class="glossary-open-button" type="button">🔐 Åpne gloseliste</button>
-      <div class="glossary-password-panel" ${isUnlocked ? "hidden" : "hidden"}>
+      <button class="glossary-open-button" type="button">${isUnlocked ? "🔓 Gloseliste åpen" : "🔐 Åpne gloseliste"}</button>
+      <div class="glossary-password-panel" hidden>
         <label>Skriv passord fra lærer</label>
         <div class="glossary-password-row">
           <input class="glossary-password-input" type="password" autocomplete="off" placeholder="Passord" />
