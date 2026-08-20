@@ -87,7 +87,11 @@ function renderRepetitionPanel() {
         <article class="repetition-card" data-repetition-card>
           <h3>📅 Årstall</h3>
           <p class="rep-help">Velg riktig fransk årstall.</p>
+          <div class="rep-row"><label>1492</label><select data-rep-answer="mille quatre cent quatre-vingt-douze"><option></option><option>mille quatre cent quatre-vingt-douze</option><option>mille quatre cent quatre-vingt-deux</option><option>mille neuf cent quatre-vingt-douze</option></select></div>
           <div class="rep-row"><label>1789</label><select data-rep-answer="mille sept cent quatre-vingt-neuf"><option></option><option>mille sept cent quatre-vingt-neuf</option><option>mille neuf cent quatre-vingt-neuf</option><option>deux mille dix-neuf</option></select></div>
+          <div class="rep-row"><label>1914</label><select data-rep-answer="mille neuf cent quatorze"><option></option><option>mille neuf cent quatorze</option><option>mille neuf cent quarante</option><option>mille neuf cent quatre</option></select></div>
+          <div class="rep-row"><label>1945</label><select data-rep-answer="mille neuf cent quarante-cinq"><option></option><option>mille neuf cent quarante-cinq</option><option>mille neuf cent quatre-vingt-cinq</option><option>mille neuf cent cinquante-quatre</option></select></div>
+          <div class="rep-row"><label>1968</label><select data-rep-answer="mille neuf cent soixante-huit"><option></option><option>mille neuf cent soixante-huit</option><option>mille neuf cent soixante-dix-huit</option><option>mille neuf cent quatre-vingt-huit</option></select></div>
           <div class="rep-row"><label>1998</label><select data-rep-answer="mille neuf cent quatre-vingt-dix-huit"><option></option><option>mille neuf cent quatre-vingt-dix-huit</option><option>mille neuf cent quatre-vingt-huit</option><option>deux mille huit</option></select></div>
           <div class="rep-row"><label>2010</label><select data-rep-answer="deux mille dix"><option></option><option>deux mille dix</option><option>deux mille vingt</option><option>mille deux cent dix</option></select></div>
           <div class="rep-row"><label>2024</label><select data-rep-answer="deux mille vingt-quatre"><option></option><option>deux mille vingt-quatre</option><option>deux mille quatorze</option><option>vingt vingt-quatre</option></select></div>
