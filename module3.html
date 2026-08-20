@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modul 3 - Tu parles français?</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="module3.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <a class="back-link" href="index.html">← Forside</a>
+      <p class="eyebrow">Modul 3</p>
+      <h1>Tu parles français?</h1>
+    </div>
+    <div class="score-card module3-score" aria-live="polite">
+      <span class="score-icon">🕵️</span>
+      <div>
+        <strong id="module3Score">0 / 28</strong>
+        <span>språkpoeng</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="map-panel module3-hero" aria-labelledby="module3Title">
+      <div class="map-copy">
+        <p class="eyebrow">Kapittelmodul</p>
+        <h2 id="module3Title">Språkdetektiv på oppdrag</h2>
+        <p>Du skal jobbe med qui og que, gradbøying av adjektiv, spørreord, Verlan og fransk rundt i verden.</p>
+      </div>
+      <div class="language-board" aria-hidden="true">
+        <div class="language-card blue"><span>qui?</span><strong>hvem gjør noe?</strong></div>
+        <div class="language-card green"><span>que?</span><strong>hva liker noen?</strong></div>
+        <div class="language-card yellow"><span>+ que</span><strong>sammenlign</strong></div>
+      </div>
+    </section>
+
+    <nav class="station-nav module3-nav" aria-label="Stasjoner i modul 3">
+      <a href="#qui-que">🧩 Qui / que</a>
+      <a href="#adjectifs">📊 Adjektiv</a>
+      <a href="#questions">❓ Spørreord</a>
+      <a href="#francophonie">🌍 Verlan</a>
+      <a href="#mission">🎮 Spill</a>
+    </nav>
+
+    <section class="module-grid single-module" aria-label="Modulstatus">
+      <article class="module-card active module3-overview">
+        <div class="module-visual">💬</div>
+        <div>
+          <p class="tag">Modul 3</p>
+          <h2>Tu parles français?</h2>
+          <p>Samle språkpoeng ved å løse små oppdrag. Du får prøve igjen hvis noe blir feil.</p>
+          <div class="progress"><span id="module3Progress"></span></div>
+          <p class="progress-text" id="module3ProgressText">0 av 28 småsvar er riktige</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="module3-station" id="qui-que">
+      <div class="station-header module3-station-header">
+        <div class="station-icon">🧩</div>
+        <div>
+          <p class="eyebrow">Stasjon 1</p>
+          <h2>Qui eller que?</h2>
+          <p>På norsk sier vi ofte bare <strong>som</strong>. På fransk må vi velge: <strong>qui</strong> eller <strong>que</strong>.</p>
+        </div>
+      </div>
+
+      <div class="detective-grid">
+        <article class="rule-tile">
+          <div class="rule-symbol">qui</div>
+          <h3>Qui + verb</h3>
+          <p>Bruk <strong>qui</strong> når ordet foran gjør noe.</p>
+          <div class="mini-example">C'est une fille <strong>qui parle</strong> français.</div>
+          <p class="tiny-note">Jenta gjør noe: hun snakker.</p>
+        </article>
+        <article class="rule-tile">
+          <div class="rule-symbol">que</div>
+          <h3>Que + person + verb</h3>
+          <p>Bruk <strong>que</strong> når noen gjør noe med ordet foran.</p>
+          <div class="mini-example">C'est une chanson <strong>que j'aime</strong>.</div>
+          <p class="tiny-note">Jeg gjør noe med sangen: jeg liker den.</p>
+        </article>
+        <article class="rule-tile wide-rule">
+          <div class="rule-symbol">qu'</div>
+          <h3>Que blir qu' foran vokal</h3>
+          <p>Når neste ord starter med vokal eller stum h, blir <strong>que</strong> til <strong>qu'</strong>.</p>
+          <div class="mini-example">C'est un mot <strong>qu'il</strong> utilise.</div>
+        </article>
+      </div>
+
+      <div class="activity-grid module3-activities">
+        <article class="m3-card" data-card>
+          <h3>🎯 Velg qui eller que</h3>
+          <div class="m3-row"><label>C'est un garçon ___ parle verlan.</label><select data-answer="qui"><option></option><option>qui</option><option>que</option><option>qu'</option></select></div>
+          <div class="m3-row"><label>C'est une langue ___ j'aime.</label><select data-answer="que"><option></option><option>qui</option><option>que</option><option>qu'</option></select></div>
+          <div class="m3-row"><label>Voici le mot ___ elle utilise.</label><select data-answer="qu'"><option></option><option>qui</option><option>que</option><option>qu'</option></select></div>
+          <div class="m3-row"><label>Je connais une fille ___ habite au Québec.</label><select data-answer="qui"><option></option><option>qui</option><option>que</option><option>qu'</option></select></div>
+          <div class="m3-row"><label>C'est un pays ___ nous visitons.</label><select data-answer="que"><option></option><option>qui</option><option>que</option><option>qu'</option></select></div>
+          <div class="m3-row"><label>Le français est une langue ___ voyage.</label><select data-answer="qui"><option></option><option>qui</option><option>que</option><option>qu'</option></select></div>
+          <button class="check-button m3-check" type="button">Sjekk svar</button>
+          <p class="m3-feedback" aria-live="polite"></p>
+        </article>
+
+        <article class="m3-card" data-card>
+          <h3>🕵️ Finn hvem som gjør noe</h3>
+          <p class="card-help">Hvis ordet foran gjør verbet, velger du qui.</p>
+          <div class="m3-row"><label>Une chanson ___ est populaire.</label><select data-answer="qui"><option></option><option>qui</option><option>que</option></select></div>
+          <div class="m3-row"><label>Une chanson ___ les jeunes écoutent.</label><select data-answer="que"><option></option><option>qui</option><option>que</option></select></div>
+          <div class="m3-row"><label>Un mot ___ vient du verlan.</label><select data-answer="qui"><option></option><option>qui</option><option>que</option></select></div>
+          <div class="m3-row"><label>Un mot ___ tu connais.</label><select data-answer="que"><option></option><option>qui</option><option>que</option></select></div>
+          <button class="check-button m3-check" type="button">Sjekk svar</button>
+          <p class="m3-feedback" aria-live="polite"></p>
+        </article>
+
+        <article class="m3-card" data-card>
+          <h3>✍️ Slå sammen setninger</h3>
+          <p class="card-help">Skriv bare <strong>qui</strong>, <strong>que</strong> eller <strong>qu'</strong>.</p>
+          <div class="m3-row"><label>J'ai un ami. Il parle français. → J'ai un ami ___ parle français.</label><input data-answer="qui" autocomplete="off"></div>
+          <div class="m3-row"><label>C'est un film. Nous regardons le film. → C'est un film ___ nous regardons.</label><input data-answer="que" autocomplete="off"></div>
+          <div class="m3-row"><label>Voici une expression. Il adore cette expression. → Voici une expression ___ il adore.</label><input data-answer="qu'|que" autocomplete="off"></div>
+          <button class="check-button m3-check" type="button">Sjekk svar</button>
+          <p class="m3-feedback" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="module3-station" id="adjectifs">
+      <div class="station-header module3-station-header">
+        <div class="station-icon">📊</div>
+        <div>
+          <p class="eyebrow">Stasjon 2</p>
+          <h2>Gradbøying av adjektiv</h2>
+          <p>Gradbøying betyr at vi bruker adjektiv til å beskrive, sammenligne og si hva som er mest.</p>
+        </div>
+      </div>
+
+      <div class="degree-cards">
+        <article><strong>Positiv</strong><span>vanlig form</span><em>Paris est grand.</em></article>
+        <article><strong>Komparativ</strong><span>sammenligning</span><em>Paris est plus grand que Meaux.</em></article>
+        <article><strong>Superlativ</strong><span>mest/minst</span><em>C'est la plus grande ville.</em></article>
+      </div>
+
+      <div class="table-wrap module3-table-wrap">
+        <table class="grammar-table module3-table">
+          <thead>
+            <tr><th>Adjektiv</th><th>Positiv</th><th>Komparativ</th><th>Superlativ</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>interessant</td><td>intéressant(e)</td><td>plus intéressant(e) que</td><td>le/la plus intéressant(e)</td></tr>
+            <tr><td>stor</td><td>grand(e)</td><td>plus grand(e) que</td><td>le/la plus grand(e)</td></tr>
+            <tr><td>lett</td><td>facile</td><td>plus facile que</td><td>le/la plus facile</td></tr>
+            <tr><td>god</td><td>bon / bonne</td><td>meilleur(e) que</td><td>le/la meilleur(e)</td></tr>
+            <tr><td>dårlig</td><td>mauvais(e)</td><td>pire que</td><td>le/la pire</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rule-strip">
+        <span><strong>plus ... que</strong> = mer ... enn</span>
+        <span><strong>moins ... que</strong> = mindre ... enn</span>
+        <span><strong>aussi ... que</strong> = like ... som</span>
+      </div>
+
+      <div class="activity-grid module3-activities">
+        <article class="m3-card" data-card>
+          <h3>🎚️ Velg riktig grad</h3>
+          <div class="m3-row"><label>Fransk er mer interessant enn matte.</label><select data-answer="plus intéressant que"><option></option><option>plus intéressant que</option><option>le plus intéressant</option><option>aussi intéressant que</option></select></div>
+          <div class="m3-row"><label>Dette er den beste sangen.</label><select data-answer="la meilleure"><option></option><option>la bonne</option><option>la meilleure</option><option>plus bonne</option></select></div>
+          <div class="m3-row"><label>Québec er like interessant som Paris.</label><select data-answer="aussi intéressant que"><option></option><option>moins intéressant que</option><option>aussi intéressant que</option><option>le plus intéressant</option></select></div>
+          <div class="m3-row"><label>Dette er den største byen.</label><select data-answer="la plus grande"><option></option><option>la plus grande</option><option>plus grand que</option><option>aussi grande que</option></select></div>
+          <button class="check-button m3-check" type="button">Sjekk svar</button>
+          <p class="m3-feedback" aria-live="polite"></p>
+        </article>
+
+        <article class="m3-card" data-card>
+          <h3>🧠 Uregelrette adjektiv</h3>
+          <div class="m3-row"><label>bon →</label><input data-answer="meilleur|meilleure" placeholder="komparativ" autocomplete="off"></div>
+          <div class="m3-row"><label>la bonne idée →</label><input data-answer="la meilleure idée|meilleure" placeholder="superlativ/bedre form" autocomplete="off"></div>
+          <div class="m3-row"><label>mauvais →</label><input data-answer="pire" placeholder="komparativ" autocomplete="off"></div>
+          <button class="check-button m3-check" type="button">Sjekk svar</button>
+          <p class="m3-feedback" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="module3-station" id="questions">
+      <div class="station-header module3-station-header">
+        <div class="station-icon">❓</div>
+        <div>
+          <p class="eyebrow">Stasjon 3</p>
+          <h2>Spørreord</h2>
+          <p>Spørreord hjelper deg å få mer informasjon: hvem, hva, hvor, når, hvordan og hvorfor.</p>
+        </div>
+      </div>
+
+      <div class="question-word-grid">
+        <span><strong>qui</strong> hvem</span>
+        <span><strong>que</strong> hva</span>
+        <span><strong>où</strong> hvor</span>
+        <span><strong>quand</strong> når</span>
+        <span><strong>comment</strong> hvordan</span>
+        <span><strong>pourquoi</strong> hvorfor</span>
+        <span><strong>combien</strong> hvor mye/mange</span>
+        <span><strong>quel/quelle</strong> hvilken</span>
+      </div>
+
+      <div class="activity-grid module3-activities">
+        <article class="m3-card" data-card>
+          <h3>🎯 Velg spørreord</h3>
+          <div class="m3-row"><label>___ habites-tu?</label><select data-answer="où"><option></option><option>qui</option><option>où</option><option>quand</option></select></div>
+          <div class="m3-row"><label>___ langues parles-tu?</label><select data-answer="quelles"><option></option><option>quelles</option><option>qui</option><option>pourquoi</option></select></div>
+          <div class="m3-row"><label>___ tu aimes le français?</label><select data-answer="pourquoi"><option></option><option>où</option><option>pourquoi</option><option>combien</option></select></div>
+          <div class="m3-row"><label>___ ça va?</label><select data-answer="comment"><option></option><option>comment</option><option>quand</option><option>que</option></select></div>
+          <div class="m3-row"><label>___ coûte le billet?</label><select data-answer="combien"><option></option><option>combien</option><option>quel</option><option>qui</option></select></div>
+          <button class="check-button m3-check" type="button">Sjekk svar</button>
+          <p class="m3-feedback" aria-live="polite"></p>
+        </article>
+
+        <article class="m3-card" data-card>
+          <h3>🔊 Les og svar muntlig</h3>
+          <p class="card-help">Trykk for å høre et spørsmål. Svar gjerne høyt før du går videre.</p>
+          <div class="speech-list">
+            <button class="speak-button" type="button" data-say="Tu parles français?">Tu parles français?</button>
+            <button class="speak-button" type="button" data-say="Pourquoi tu apprends le français?">Pourquoi tu apprends le français?</button>
+            <button class="speak-button" type="button" data-say="Quelle langue est la plus intéressante?">Quelle langue est la plus intéressante?</button>
+          </div>
+          <p class="tiny-note">Lyd fungerer best i Chrome, Edge og Safari når lyd er tillatt.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="module3-station" id="francophonie">
+      <div class="station-header module3-station-header">
+        <div class="station-icon">🌍</div>
+        <div>
+          <p class="eyebrow">Stasjon 4</p>
+          <h2>Verlan og fransk i verden</h2>
+          <p>Fransk brukes mange steder i verden. I ungdomsspråk finnes også Verlan, der lyder eller stavelser snus på.</p>
+        </div>
+      </div>
+
+      <div class="culture-grid">
+        <article class="culture-card pink"><span>meuf</span><strong>femme</strong><p>Et kjent Verlan-ord.</p></article>
+        <article class="culture-card blue"><span>cimer</span><strong>merci</strong><p>Et uformelt slangord.</p></article>
+        <article class="culture-card green"><span>céfran</span><strong>français</strong><p>Brukes i ungdomsspråk.</p></article>
+      </div>
+
+      <div class="franco-map" aria-label="Fransk i verden">
+        <div class="franco-place">🇨🇦 Québec</div>
+        <div class="franco-place">🇧🇪 Belgique</div>
+        <div class="franco-place">🇨🇭 Suisse</div>
+        <div class="franco-place">🇸🇳 Sénégal</div>
+        <div class="franco-place">🇭🇹 Haïti</div>
+        <div class="franco-place">🇬🇫 Guyane</div>
+      </div>
+
+      <div class="activity-grid module3-activities">
+        <article class="m3-card" data-card>
+          <h3>🧩 Verlan-match</h3>
+          <div class="m3-row"><label>meuf betyr</label><select data-answer="femme"><option></option><option>merci</option><option>femme</option><option>français</option></select></div>
+          <div class="m3-row"><label>cimer betyr</label><select data-answer="merci"><option></option><option>merci</option><option>femme</option><option>bonjour</option></select></div>
+          <div class="m3-row"><label>céfran betyr</label><select data-answer="français"><option></option><option>français</option><option>copain</option><option>école</option></select></div>
+          <button class="check-button m3-check" type="button">Sjekk svar</button>
+          <p class="m3-feedback" aria-live="polite"></p>
+        </article>
+
+        <article class="m3-card" data-card>
+          <h3>🌍 Fransk i verden</h3>
+          <div class="m3-row"><label>Hvor snakkes fransk i Canada?</label><select data-answer="québec"><option></option><option>Québec</option><option>Madrid</option><option>Berlin</option></select></div>
+          <div class="m3-row"><label>Hvilket sted ligger i Sør-Amerika?</label><select data-answer="guyane"><option></option><option>Guyane</option><option>Suisse</option><option>Belgique</option></select></div>
+          <div class="m3-row"><label>Hvilket land ligger i Vest-Afrika?</label><select data-answer="sénégal"><option></option><option>Sénégal</option><option>Belgique</option><option>Canada</option></select></div>
+          <button class="check-button m3-check" type="button">Sjekk svar</button>
+          <p class="m3-feedback" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mission-game" id="mission" aria-labelledby="missionTitle">
+      <div class="mission-intro">
+        <div>
+          <p class="eyebrow">Oppsummeringsspill</p>
+          <h2 id="missionTitle">Mission Francophonie</h2>
+          <p>Løs 12 små oppdrag. Hver riktige løsning sender meldingen videre til neste sted.</p>
+        </div>
+        <button class="summary-reset" id="missionReset" type="button">🔁 Start spillet på nytt</button>
+      </div>
+      <div class="mission-route" aria-hidden="true">
+        <div class="mission-node active">Paris</div>
+        <div class="mission-line"></div>
+        <div class="mission-node">Québec</div>
+        <div class="mission-line"></div>
+        <div class="mission-node">Dakar</div>
+        <div class="mission-line"></div>
+        <div class="mission-node">Guyane</div>
+      </div>
+      <div class="mission-card">
+        <p id="missionCounter">Oppdrag 1 av 12</p>
+        <h3 id="missionQuestion">Trykk på et svar for å starte.</h3>
+        <div class="mission-answers" id="missionAnswers"></div>
+        <p class="mission-feedback" id="missionFeedback" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="module3.js?v=20260820-start"></script>
+</body>
+</html>
