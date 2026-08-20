@@ -80,6 +80,109 @@ const missionQuestions = [
   }
 ];
 
+const francophonePlaces = [
+  {
+    id: "rdc",
+    name: "Congo (RD)",
+    region: "Afrika",
+    speakers: "ca. 48,9 millioner",
+    percent: "51 %",
+    x: 52,
+    y: 58,
+    note: "Dette er et av stedene med flest fransktalende i verden. Det viser at fransk ikke bare handler om Europa."
+  },
+  {
+    id: "france",
+    name: "France",
+    region: "Europa",
+    speakers: "ca. 66,4 millioner",
+    percent: "97 %",
+    x: 49,
+    y: 35,
+    note: "Frankrike er ofte det første vi tenker på, men det er bare én del av den franskspråklige verden."
+  },
+  {
+    id: "quebec",
+    name: "Québec",
+    region: "Nord-Amerika",
+    speakers: "ca. 8,0 millioner",
+    percent: "93 %",
+    x: 27,
+    y: 31,
+    note: "I Québec er fransk et viktig hverdagsspråk, selv om området ligger i Canada."
+  },
+  {
+    id: "belgique",
+    name: "Belgique",
+    region: "Europa",
+    speakers: "ca. 8,8 millioner",
+    percent: "76 %",
+    x: 48,
+    y: 32,
+    note: "Belgia har flere offisielle språk. Fransk brukes særlig i Vallonia og Brussel."
+  },
+  {
+    id: "suisse",
+    name: "Suisse",
+    region: "Europa",
+    speakers: "ca. 5,9 millioner",
+    percent: "67 %",
+    x: 50,
+    y: 37,
+    note: "Sveits har fire nasjonalspråk. Fransk er ett av dem."
+  },
+  {
+    id: "senegal",
+    name: "Sénégal",
+    region: "Afrika",
+    speakers: "ca. 4,6 millioner",
+    percent: "26 %",
+    x: 45,
+    y: 54,
+    note: "I Senegal brukes fransk mye i skole, administrasjon og skrift, sammen med lokale språk."
+  },
+  {
+    id: "cameroun",
+    name: "Cameroun",
+    region: "Afrika",
+    speakers: "ca. 11,5 millioner",
+    percent: "41 %",
+    x: 50,
+    y: 55,
+    note: "Kamerun har både fransk og engelsk som offisielle språk."
+  },
+  {
+    id: "coteivoire",
+    name: "Côte d'Ivoire",
+    region: "Afrika",
+    speakers: "ca. 9,3 millioner",
+    percent: "34 %",
+    x: 47,
+    y: 56,
+    note: "Her er fransk et viktig felles språk i et land med mange lokale språk."
+  },
+  {
+    id: "madagascar",
+    name: "Madagascar",
+    region: "Afrika / Indiahavet",
+    speakers: "ca. 7,7 millioner",
+    percent: "28 %",
+    x: 58,
+    y: 71,
+    note: "Madagaskar ligger i Indiahavet. Fransk brukes sammen med gassisk."
+  },
+  {
+    id: "haiti",
+    name: "Haïti",
+    region: "Karibia",
+    speakers: "ca. 4,3 millioner",
+    percent: "39 %",
+    x: 31,
+    y: 50,
+    note: "På Haiti brukes både fransk og haitisk kreol."
+  }
+];
+
 const totalSmallAnswers = document.querySelectorAll("[data-answer]").length;
 const scoreElement = document.querySelector("#module3Score");
 const progressElement = document.querySelector("#module3Progress");
@@ -94,6 +197,7 @@ injectQuiQueNorwegianTestStyles();
 insertQuiQueNorwegianTest();
 setupCards();
 setupSpeechButtons();
+setupFrancophoneMap();
 renderMission();
 updateModule3Score();
 
@@ -282,6 +386,262 @@ function speakFrench(text) {
   utterance.lang = "fr-FR";
   utterance.rate = 0.9;
   window.speechSynthesis.speak(utterance);
+}
+
+function setupFrancophoneMap() {
+  const map = document.querySelector(".franco-map");
+  if (!map || map.dataset.enhanced === "true") return;
+  map.dataset.enhanced = "true";
+
+  injectFrancophoneMapStyles();
+
+  map.innerHTML = `
+    <div class="franco-map-intro">
+      <div>
+        <h3>Trykk på kartet</h3>
+        <p>Se omtrent hvor mange som snakker fransk på ulike steder i verden.</p>
+      </div>
+      <span>OIF 2022, avrundet</span>
+    </div>
+    <div class="world-map-layout">
+      <div class="world-map-stage" aria-label="Stilisert verdenskart med klikkbare steder">
+        <svg class="world-map-svg" viewBox="0 0 1000 520" role="img" aria-label="Stilisert verdenskart">
+          <path class="continent" d="M146 108c55-42 146-38 183 14 30 43 3 88 41 126 27 27 51 42 41 78-11 39-51 44-64 84-13 39 17 56 0 76-24 29-89-11-120-62-22-36-24-77-53-99-42-31-92-20-109-56-17-37 23-61 33-95 8-29 18-43 48-66Z"/>
+          <path class="continent" d="M438 106c58-40 132-41 178-3 37 31 81 29 124 47 54 22 89 62 75 91-12 24-62 12-90 34-37 29-20 80-63 104-34 19-78-5-113 12-33 16-28 54-59 55-37 1-80-56-70-105 9-42 53-59 49-95-4-41-62-46-66-82-2-21 14-42 35-58Z"/>
+          <path class="continent" d="M523 247c44-20 112-4 143 39 33 46 10 97 35 137 20 32 59 42 52 62-9 28-94 17-151-22-46-31-73-82-84-132-8-36-22-68 5-84Z"/>
+          <path class="continent" d="M746 161c53-29 138-17 181 28 24 25 34 58 18 78-18 24-58 7-82 31-23 23-7 60-35 78-29 19-78-3-96-36-17-31 7-54-5-86-15-39-57-54-42-75 10-14 35-4 61-18Z"/>
+          <path class="continent" d="M770 392c42-16 101 9 115 48 10 28-9 54-39 58-45 6-96-38-92-78 1-12 7-22 16-28Z"/>
+        </svg>
+        ${francophonePlaces.map((place) => `
+          <button class="map-pin" type="button" data-place="${place.id}" style="left:${place.x}%;top:${place.y}%" aria-label="${place.name}">
+            <span></span>${place.name}
+          </button>
+        `).join("")}
+      </div>
+      <aside class="map-info" id="mapInfo" aria-live="polite"></aside>
+    </div>
+    <div class="map-reflection">
+      <strong>Tenk over:</strong> Hva overrasker deg mest når du sammenligner Europa, Canada/Karibia og Afrika?
+    </div>
+  `;
+
+  const buttons = Array.from(map.querySelectorAll(".map-pin"));
+  const info = map.querySelector("#mapInfo");
+
+  function renderPlace(place) {
+    buttons.forEach((button) => {
+      button.classList.toggle("active", button.dataset.place === place.id);
+    });
+
+    info.innerHTML = `
+      <p class="map-region">${place.region}</p>
+      <h3>${place.name}</h3>
+      <div class="speaker-number">${place.speakers}</div>
+      <p><strong>${place.percent}</strong> av befolkningen regnes som fransktalende i tallgrunnlaget.</p>
+      <p>${place.note}</p>
+    `;
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const place = francophonePlaces.find((item) => item.id === button.dataset.place);
+      if (place) renderPlace(place);
+    });
+  });
+
+  renderPlace(francophonePlaces[0]);
+}
+
+function injectFrancophoneMapStyles() {
+  if (document.querySelector("#francophoneMapStyles")) return;
+
+  const style = document.createElement("style");
+  style.id = "francophoneMapStyles";
+  style.textContent = `
+    .franco-map.interactive-world-map,
+    .franco-map[data-enhanced="true"] {
+      display: block;
+      padding: 18px;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #eff6ff, #ecfeff 55%, #f0fdf4);
+    }
+
+    .franco-map-intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+
+    .franco-map-intro h3 {
+      margin: 0 0 4px;
+      color: #1e3a8a;
+    }
+
+    .franco-map-intro p {
+      margin: 0;
+      color: #475569;
+      font-weight: 700;
+    }
+
+    .franco-map-intro span {
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #0f766e;
+      font-size: 0.86rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .world-map-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(250px, 0.75fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .world-map-stage {
+      min-height: 390px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #dbeafe;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #dbeafe 0%, #ecfeff 100%);
+    }
+
+    .world-map-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .continent {
+      fill: #bbf7d0;
+      stroke: #86efac;
+      stroke-width: 4;
+      filter: drop-shadow(0 10px 12px rgba(15, 118, 110, 0.12));
+    }
+
+    .map-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 140px;
+      min-height: 36px;
+      padding: 6px 9px;
+      border: 2px solid #ffffff;
+      border-radius: 999px;
+      color: #0f172a;
+      background: #ffffff;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.14);
+      font-size: 0.82rem;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .map-pin span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ef4444;
+      box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.2);
+    }
+
+    .map-pin:hover,
+    .map-pin.active {
+      color: #ffffff;
+      background: #1d4ed8;
+      border-color: #bfdbfe;
+    }
+
+    .map-pin.active span,
+    .map-pin:hover span {
+      background: #facc15;
+      box-shadow: 0 0 0 5px rgba(250, 204, 21, 0.3);
+    }
+
+    .map-info {
+      min-height: 260px;
+      padding: 18px;
+      border: 1px solid #dbeafe;
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 12px 26px rgba(70, 89, 126, 0.08);
+    }
+
+    .map-info h3 {
+      margin: 4px 0 10px;
+      color: #1e3a8a;
+      font-size: 1.45rem;
+    }
+
+    .map-info p {
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    .map-region {
+      margin: 0;
+      color: #0f766e;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .speaker-number {
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 8px;
+      background: #eff6ff;
+      color: #1e3a8a;
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .map-reflection {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #fff7ed;
+      color: #9a3412;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 920px) {
+      .world-map-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .world-map-stage {
+        min-height: 340px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .franco-map-intro {
+        flex-direction: column;
+      }
+
+      .world-map-stage {
+        min-height: 460px;
+      }
+
+      .map-pin {
+        max-width: 116px;
+        font-size: 0.72rem;
+        padding: 5px 7px;
+      }
+    }
+  `;
+  document.head.appendChild(style);
 }
 
 function renderMission() {
