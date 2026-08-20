@@ -48,15 +48,15 @@ function renderRepetitionPanel() {
       <div class="repetition-rule-grid">
         <article>
           <h3>C'est</h3>
-          <p>Brukes ofte når vi sier <strong>det er</strong> og beskriver noe.</p>
-          <div class="mini-example">C'est une belle région.</div>
-          <div class="mini-example">C'est en France.</div>
+          <p>Ligner på engelsk <strong>it is</strong>. Bruk <strong>c'est</strong> når du sier hva noe er, eller beskriver noe.</p>
+          <div class="mini-example">C'est une belle région. = It is a beautiful region.</div>
+          <div class="mini-example">C'est en France. = It is in France.</div>
         </article>
         <article>
           <h3>Il y a</h3>
-          <p>Brukes når vi sier at noe <strong>finnes</strong> eller at det er noe et sted.</p>
-          <div class="mini-example">Il y a une plage.</div>
-          <div class="mini-example">Il y a beaucoup de touristes.</div>
+          <p>Ligner på engelsk <strong>there is / there are</strong>. Bruk <strong>il y a</strong> når du sier at noe finnes eller er et sted.</p>
+          <div class="mini-example">Il y a une plage. = There is a beach.</div>
+          <div class="mini-example">Il y a beaucoup de touristes. = There are many tourists.</div>
         </article>
         <article>
           <h3>Årstall</h3>
