@@ -90,6 +90,8 @@ const missionAnswers = document.querySelector("#missionAnswers");
 const missionFeedback = document.querySelector("#missionFeedback");
 const missionReset = document.querySelector("#missionReset");
 
+injectQuiQueNorwegianTestStyles();
+insertQuiQueNorwegianTest();
 setupCards();
 setupSpeechButtons();
 renderMission();
@@ -101,6 +103,107 @@ missionReset?.addEventListener("click", () => {
   module3State.missionFinished = false;
   renderMission();
 });
+
+function injectQuiQueNorwegianTestStyles() {
+  if (document.querySelector("#quiQueNorwegianTestStyles")) return;
+
+  const style = document.createElement("style");
+  style.id = "quiQueNorwegianTestStyles";
+  style.textContent = `
+    .qui-norwegian-test {
+      margin: 0 0 18px;
+      padding: 18px;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #fff7ed 0%, #ffffff 70%);
+      box-shadow: 0 14px 28px rgba(154, 52, 18, 0.08);
+    }
+
+    .qui-norwegian-test h3 {
+      margin: 0 0 6px;
+      color: #9a3412;
+    }
+
+    .qui-norwegian-test p {
+      margin: 0;
+    }
+
+    .qui-test-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .qui-test-grid article {
+      padding: 14px;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .qui-test-grid strong {
+      color: #1e3a8a;
+    }
+
+    .qui-test-grid mark {
+      padding: 0 4px;
+      border-radius: 4px;
+      background: #fde68a;
+    }
+
+    .qui-test-grid .wrong-example {
+      margin-top: 8px;
+      color: #991b1b;
+      font-weight: 800;
+    }
+
+    .qui-norwegian-test .mini-example {
+      margin-top: 10px;
+    }
+
+    .qui-norwegian-test .tiny-note {
+      margin-top: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .qui-test-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+function insertQuiQueNorwegianTest() {
+  const station = document.querySelector("#qui-que");
+  const header = station?.querySelector(".module3-station-header");
+  if (!station || !header || station.querySelector(".qui-norwegian-test")) return;
+
+  header.insertAdjacentHTML("afterend", `
+    <div class="qui-norwegian-test">
+      <div>
+        <h3>Norsk-testen: må <em>som</em> være med?</h3>
+        <p>På norsk kan du prøve å ta bort ordet <strong>som</strong>. Det hjelper deg ofte å velge mellom <strong>qui</strong> og <strong>que</strong> på fransk.</p>
+      </div>
+      <div class="qui-test-grid">
+        <article>
+          <strong>Som må være med → qui</strong>
+          <p>Det er en jente <mark>som</mark> snakker fransk.</p>
+          <p class="wrong-example">Ikke: Det er en jente snakker fransk.</p>
+          <div class="mini-example">C'est une fille <strong>qui parle</strong> français.</div>
+        </article>
+        <article>
+          <strong>Som kan tas bort → que</strong>
+          <p>Det er en sang <mark>som</mark> jeg liker.</p>
+          <p>Det er en sang jeg liker.</p>
+          <div class="mini-example">C'est une chanson <strong>que j'aime</strong>.</div>
+        </article>
+      </div>
+      <p class="tiny-note">Kort sagt: <strong>qui</strong> når ordet foran gjør verbet. <strong>que</strong> når noen gjør noe med ordet foran. Foran vokal blir <strong>que</strong> til <strong>qu'</strong>.</p>
+    </div>
+  `);
+}
 
 function setupCards() {
   document.querySelectorAll(".m3-card[data-card]").forEach((card, index) => {
