@@ -1,3 +1,26 @@
+const ordinalList = [
+  ["1.", "premier / première"],
+  ["2.", "deuxième"],
+  ["3.", "troisième"],
+  ["4.", "quatrième"],
+  ["5.", "cinquième"],
+  ["6.", "sixième"],
+  ["7.", "septième"],
+  ["8.", "huitième"],
+  ["9.", "neuvième"],
+  ["10.", "dixième"],
+  ["11.", "onzième"],
+  ["12.", "douzième"],
+  ["13.", "treizième"],
+  ["14.", "quatorzième"],
+  ["15.", "quinzième"],
+  ["16.", "seizième"],
+  ["17.", "dix-septième"],
+  ["18.", "dix-huitième"],
+  ["19.", "dix-neuvième"],
+  ["20.", "vingtième"]
+];
+
 insertModule2Repetition();
 
 function insertModule2Repetition() {
@@ -98,29 +121,6 @@ function renderRepetitionPanel() {
     </section>`;
 }
 
-const ordinalList = [
-  ["1.", "premier / première"],
-  ["2.", "deuxième"],
-  ["3.", "troisième"],
-  ["4.", "quatrième"],
-  ["5.", "cinquième"],
-  ["6.", "sixième"],
-  ["7.", "septième"],
-  ["8.", "huitième"],
-  ["9.", "neuvième"],
-  ["10.", "dixième"],
-  ["11.", "onzième"],
-  ["12.", "douzième"],
-  ["13.", "treizième"],
-  ["14.", "quatorzième"],
-  ["15.", "quinzième"],
-  ["16.", "seizième"],
-  ["17.", "dix-septième"],
-  ["18.", "dix-huitième"],
-  ["19.", "dix-neuvième"],
-  ["20.", "vingtième"]
-];
-
 function setupRepetitionChecks() {
   document.querySelectorAll(".repetition-card[data-repetition-card]").forEach((card) => {
     const button = card.querySelector(".rep-check");
@@ -174,10 +174,13 @@ function normalizeRepAnswer(value) {
 }
 
 function updateStationOneLabel() {
-  const title = document.querySelector('.station-nav a[href="#verbverksted"] .station-link-title');
-  const subtitle = document.querySelector('.station-nav a[href="#verbverksted"] .station-link-subtitle');
+  const stationLink = document.querySelector('.station-nav a[href="#verbverksted"]');
+  const title = stationLink?.querySelector(".station-link-title");
+  const subtitle = stationLink?.querySelector(".station-link-subtitle");
+
   if (title) title.textContent = "🛠️ Verb + repetisjon";
   if (subtitle) subtitle.textContent = "verb, tall og uttrykk";
+  if (stationLink && !title && !subtitle) stationLink.textContent = "🛠️ Verb + repetisjon";
 }
 
 function injectRepetitionStyles() {
