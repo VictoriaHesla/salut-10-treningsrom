@@ -18,7 +18,7 @@
     <div class="score-card module3-score" aria-live="polite">
       <span class="score-icon">🕵️</span>
       <div>
-        <strong id="module3Score">0 / 31</strong>
+        <strong id="module3Score">0 / 35</strong>
         <span>språkpoeng</span>
       </div>
     </div>
@@ -54,7 +54,7 @@
           <h2>Tu parles français?</h2>
           <p>Samle språkpoeng ved å løse små oppdrag. Du får prøve igjen hvis noe blir feil.</p>
           <div class="progress"><span id="module3Progress"></span></div>
-          <p class="progress-text" id="module3ProgressText">0 av 31 småsvar er riktige</p>
+          <p class="progress-text" id="module3ProgressText">0 av 35 småsvar er riktige</p>
         </div>
       </article>
     </section>
@@ -67,6 +67,19 @@
           <h2>Qui eller que?</h2>
           <p>På norsk sier vi ofte bare <strong>som</strong>. På fransk må vi velge: <strong>qui</strong> eller <strong>que</strong>.</p>
         </div>
+      </div>
+
+      <div class="activity-grid module3-activities">
+        <article class="m3-card" data-card>
+          <h3>🪜 Oversett - må du bruke som?</h3>
+          <p class="card-help">Les norsk først. Prøv å ta bort <strong>som</strong>. Velg deretter riktig ord på fransk.</p>
+          <div class="m3-row"><label>Norsk: Det er en gutt som snakker fransk. Test: <strong>som må være med</strong>. Fransk: C'est un garçon ___ parle français.</label><select data-answer="qui"><option></option><option>qui</option><option>que</option></select></div>
+          <div class="m3-row"><label>Norsk: Det er en by som jeg liker. Test: <strong>som kan tas bort</strong>. Fransk: C'est une ville ___ j'aime.</label><select data-answer="que"><option></option><option>qui</option><option>que</option></select></div>
+          <div class="m3-row"><label>Norsk: Det er en region som er vakker. Test: <strong>som må være med</strong>. Fransk: C'est une région ___ est belle.</label><select data-answer="qui"><option></option><option>qui</option><option>que</option></select></div>
+          <div class="m3-row"><label>Norsk: Det er et ord som du kjenner. Test: <strong>som kan tas bort</strong>. Fransk: C'est un mot ___ tu connais.</label><select data-answer="que"><option></option><option>qui</option><option>que</option></select></div>
+          <button class="check-button m3-check" type="button">Sjekk svar</button>
+          <p class="m3-feedback" aria-live="polite"></p>
+        </article>
       </div>
 
       <div class="detective-grid">
