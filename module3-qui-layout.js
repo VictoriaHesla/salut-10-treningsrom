@@ -44,9 +44,9 @@
       label.innerHTML = `
         <span class="qui-task-number">${task.no}</span>
         <span class="qui-task-lines">
-          <span><strong>Norsk:</strong> ${task.norsk}</span>
-          <span><strong>Test:</strong> ${task.test}</span>
-          <span><strong>Fransk:</strong> ${task.fransk}</span>
+          <span class="qui-line qui-line-norsk"><strong>Norsk:</strong> ${task.norsk}</span>
+          <span class="qui-line qui-line-test"><strong>Test:</strong> ${task.test}</span>
+          <span class="qui-line qui-line-fransk"><strong>Fransk:</strong> ${task.fransk}</span>
         </span>
       `;
     });
@@ -87,11 +87,38 @@
 
       .qui-task-lines {
         display: grid;
-        gap: 6px;
+        gap: 8px;
       }
 
-      .qui-task-lines span {
+      .qui-task-lines .qui-line {
         display: block;
+        padding: 8px 10px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        line-height: 1.35;
+      }
+
+      .qui-line strong {
+        display: inline-block;
+        min-width: 58px;
+      }
+
+      .qui-line-norsk {
+        color: #1e3a8a;
+        border-color: #bfdbfe;
+        background: #eff6ff;
+      }
+
+      .qui-line-test {
+        color: #92400e;
+        border-color: #fde68a;
+        background: #fef3c7;
+      }
+
+      .qui-line-fransk {
+        color: #991b1b;
+        border-color: #fecaca;
+        background: #fee2e2;
       }
 
       .qui-step-row select {
